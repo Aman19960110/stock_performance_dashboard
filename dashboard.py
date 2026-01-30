@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 # App Config
 # =========================
 st.set_page_config(page_title="Stock Performance Dashboard", layout="wide")
-st.title("📈 Stock Performance Dashboard")
+st.title(" Stock Performance Dashboard")
 
 # =========================
 # Sidebar Controls
