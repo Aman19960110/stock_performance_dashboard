@@ -183,11 +183,52 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
-
+col1, col2 = st.columns(2)
 #percentage diff n_th day - (n-1)th_day
 mask_df = total_pct_df.drop(columns=['mean_pct_chg','median_pct_change','std','2std'])
 sd_last_row = mask_df.iloc[-2]
 last_row = mask_df.iloc[-1]
 last_day_change = last_row - sd_last_row
 last_day_change = last_day_change.rename("Last Day Change",inplace=True).sort_values(ascending=False)
-st.dataframe(last_day_change)
+with col1:
+    st.dataframe(last_day_change)
+
+threshold_cols = ['mean_pct_chg','median_pct_change','std','2std']
+stock_cols = [c for c in total_pct_df.columns if c not in threshold_cols]
+def cross_up(stock,level):
+    return (stock.shift(1)< level.shift(1)) & (stock >= level)
+
+cross_mean = total_pct_df[stock_cols].apply(
+    lambda s: cross_up(s,total_pct_df['mean_pct_chg'])
+)
+
+cross_median = total_pct_df[stock_cols].apply(
+    lambda s: cross_up(s,total_pct_df['median_pct_change'])
+)
+cross_1sd = total_pct_df[stock_cols].apply(
+    lambda s: cross_up(s, total_pct_df["std"])
+)
+
+cross_2sd = total_pct_df[stock_cols].apply(
+    lambda s: cross_up(s, total_pct_df["2std"])
+)
+
+cross_any = cross_mean | cross_median | cross_1sd | cross_2sd
+
+today_cross = cross_any.loc[total_pct_df.index[-1]]
+
+stocks_crossing_today = today_cross[today_cross].index.tolist()
+
+print(stocks_crossing_today)
+signals = pd.DataFrame(index=total_pct_df.index, columns=stock_cols)
+
+signals[cross_mean] = "mean"
+signals[cross_median] = "median"
+signals[cross_1sd] = "1sd"
+signals[cross_2sd] = "2sd"
+
+
+signals_today = signals.loc[total_pct_df.index[-1]].dropna()
+
+with col2:
+    st.dataframe(signals_today)
