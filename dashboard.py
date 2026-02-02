@@ -183,3 +183,11 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
+#percentage diff n_th day - (n-1)th_day
+mask_df = total_pct_df.drop(columns=['mean_pct_chg','median_pct_change','std','2std'])
+sd_last_row = mask_df.iloc[-2]
+last_row = mask_df.iloc[-1]
+last_day_change = last_row - sd_last_row
+last_day_change = last_day_change.rename("Last Day Change",inplace=True).sort_values(ascending=False)
+st.dataframe(last_day_change)
