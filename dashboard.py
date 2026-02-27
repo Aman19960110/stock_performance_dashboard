@@ -34,6 +34,23 @@ stock_mcap_df.sort_values(by="market_cap", ascending=False, inplace=True)
 stock_mcap_df.reset_index(drop=True, inplace=True)
 
 # =========================
+# NIFTY 50 Symbols
+# =========================
+nifty_50_symbols = [
+    "ADANIENT","ADANIPORTS","APOLLOHOSP","ASIANPAINT","AXISBANK",
+    "BAJAJ-AUTO","BAJFINANCE","BAJAJFINSV","BPCL","BHARTIARTL",
+    "BRITANNIA","CIPLA","COALINDIA","DIVISLAB","DRREDDY",
+    "EICHERMOT","GRASIM","HCLTECH","HDFCBANK","HDFCLIFE",
+    "HEROMOTOCO","HINDALCO","HINDUNILVR","ICICIBANK","ITC",
+    "INDUSINDBK","INFY","JSWSTEEL","KOTAKBANK","LT",
+    "M&M","MARUTI","NESTLEIND","NTPC","ONGC",
+    "POWERGRID","RELIANCE","SBILIFE","SBIN","SUNPHARMA",
+    "TCS","TATACONSUM","TATAMOTORS","TATASTEEL","TECHM",
+    "TITAN","ULTRACEMCO","UPL","WIPRO","LTM"
+]
+
+
+# =========================
 # Group Selector (200 stocks)
 # =========================
 group_size = 200
@@ -41,18 +58,30 @@ total_groups = math.ceil(len(stock_mcap_df) / group_size)
 
 st.sidebar.subheader("Market Cap Group")
 
+group_options = ["NIFTY_50"] + list(range(1, total_groups + 1))
+
 group_no = st.sidebar.selectbox(
     "Select Group",
-    options=range(1, total_groups + 1)
+    options=group_options
 )
 
-start_idx = (group_no - 1) * group_size
-end_idx = start_idx + group_size
-
-df_group = stock_mcap_df.iloc[start_idx:end_idx]
+if group_no == "NIFTY_50":
+    df_group = stock_mcap_df[
+        stock_mcap_df["SYMBOL"].isin(nifty_50_symbols)
+    ]
+else:
+    start_idx = (group_no - 1) * group_size
+    end_idx = start_idx + group_size
+    df_group = stock_mcap_df.iloc[start_idx:end_idx]
 
 st.subheader(f"Selected Stock Group (Group {group_no})")
 st.dataframe(df_group, use_container_width=True)
+
+
+
+
+
+
 
 # =========================
 # Download Price Data
