@@ -329,7 +329,7 @@ elif choice == 'S&P500':
     # =========================
     # Group Selector
     # =========================
-    group_size = 100
+    group_size = 50
     total_groups = math.ceil(len(sp500_df) / group_size)
 
     st.sidebar.subheader("S&P500 Group")
