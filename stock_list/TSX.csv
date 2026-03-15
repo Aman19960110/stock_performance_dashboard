@@ -1,0 +1,224 @@
+,Ticker,Company,Sector [9],Industry [9],MarketCap
+0,AAV,Advantage Energy Ltd.,Energy,Oil & Gas Exploration and Production,1846335710.4300241
+1,AEM,Agnico Eagle Mines Limited,Basic Materials,Metals & Mining,142577723765.4457
+2,AC,Air Canada,Industrials,Transportation,4905119236.530605
+3,AGI,Alamos Gold Inc.,Basic Materials,Metals & Mining,26431496491.493626
+4,ASTL,Algoma Steel Group Inc.,Basic Materials,Steel,497386202.2025585
+5,AQN,Algonquin Power & Utilities Corp.,Energy,Renewable Energy Producers,6682938331.086281
+6,ATD,Alimentation Couche-Tard Inc.,Consumer Cyclical,Retail - Discretionary,77714406044.06259
+7,AP.UN,Allied Properties Real Estate Investment Trust,Real Estate,REITs,
+8,ALA,AltaGas Ltd.,Utilities,Regulated Utilities,15069740005.367565
+9,AIF,Altus Group Limited,Real Estate,Real Estate,1761325527.0
+10,ARX,ARC Resources Ltd.,Energy,Oil & Gas Exploration and Production,15871635274.31488
+11,ATZ,Aritzia Inc.,Consumer Cyclical,Retail - Discretionary,12855779915.596199
+12,ACO.X,ATCO Ltd.,Utilities,Regulated Utilities,
+13,ATH,Athabasca Oil Corporation,Energy,Oil & Gas Exploration and Production,4346082201.290131
+14,ATRL,AtkinsRéalis Group Inc.,Industrials,Construction,15199135660.375763
+15,ATS,ATS Corporation,Industrials,Industrial Products,3661826057.110485
+16,AYA,Aya Gold & Silver Inc.,Basic Materials,Metals & Mining,3099105259.972286
+17,BTO,B2Gold Corp.,Basic Materials,Metals & Mining,8877971337.40538
+18,BDGI,Badger Infrastructure Solutions Ltd.,Industrials,Construction,2090545177.5498886
+19,BMO,Bank of Montreal,Financial Services,Banks,131458335296.82318
+20,BNS,Bank of Nova Scotia,Financial Services,Banks,116682532156.82487
+21,ABX,Barrick Gold Corporation,Basic Materials,Metals & Mining,97321685601.18971
+22,BHC,Bausch Health Companies Inc.,Healthcare,Drug Manufacturers,2527235822.5712566
+23,BTE,Baytex Energy Corp.,Energy,Oil & Gas Exploration and Production,4248793209.909323
+24,BCE,BCE Inc.,Communication Services,Telecommunication Services,32722331060.822147
+25,BIR,Birchcliff Energy Ltd.,Energy,Oil & Gas Exploration and Production,1975790445.7240105
+26,BDT,Bird Construction Inc.,Industrials,Construction,1887447015.9689941
+27,BB,BlackBerry Limited,Information Technology,Software,2697950255.2221966
+28,BEI.UN,Boardwalk Real Estate Investment Trust,Real Estate,REITs,
+29,BBD.B,Bombardier Inc.,Industrials,Aerospace & Defense,
+30,BLX,Boralex Inc.,Energy,Renewable Energy Producers,2771312015.613493
+31,BYD,Boyd Group Services Inc.,Consumer Cyclical,Personal Services,5873762163.376099
+32,BAM,Brookfield Asset Management Ltd.,Financial Services,Asset Management,96504527881.73526
+33,BBU.UN,Brookfield Business Partners L.P.,Industrials,Conglomerates,
+34,BN,Brookfield Corporation,Financial Services,Asset Management,118353957556.36356
+35,BIP.UN,Brookfield Infrastructure Partners L.P.,Utilities,Regulated Utilities,
+36,BEP.UN,Brookfield Renewable Partners L.P.,Energy,Renewable Energy Producers,
+37,DOO,BRP Inc.,Consumer Cyclical,Vehicles & Parts,6424570434.531937
+38,CAE,CAE Inc.,Industrials,Aerospace & Defense,12099877397.764137
+39,CXB,Calibre Mining Corp.,Basic Materials,Metals & Mining,
+40,CCO,Cameco Corporation,Energy,Other Energy Sources,64541633073.132935
+41,CAR.UN,Canadian Apartment Properties Real Estate Investment Trust,Real Estate,REITs,
+42,CM,Canadian Imperial Bank of Commerce,Financial Services,Banks,120437006403.55708
+43,CNR,Canadian National Railway Company,Industrials,Transportation,88047710641.47949
+44,CNQ,Canadian Natural Resources Limited,Energy,Oil & Gas Exploration and Production,138738002176.11694
+45,CP,Canadian Pacific Kansas City Limited,Industrials,Transportation,100337931489.97272
+46,CTC.A,Canadian Tire Corporation Limited,Consumer Cyclical,Retail - Discretionary,
+47,CU,Canadian Utilities Limited,Utilities,Regulated Utilities,13288642647.334946
+48,CWB,Canadian Western Bank,Financial Services,Banks,
+49,CPX,Capital Power Corporation,Utilities,Independent Power Producers,9657947000.0
+50,CS,Capstone Copper Corp.,Basic Materials,Metals & Mining,8468953019.334766
+51,CJT,Cargojet Inc.,Industrials,Transportation,1282913149.7123108
+52,CCL.B,CCL Industries Inc.,Consumer Cyclical,Packaging & Containers,
+53,CLS,Celestica Inc.,Information Technology,Hardware & Equipment,41673167446.8645
+54,CVE,Cenovus Energy Inc.,Energy,Integrated Oil & Gas,60074660009.618484
+55,CG,Centerra Gold Inc.,Basic Materials,Metals & Mining,4840261629.9614525
+56,CEU,CES Energy Solutions Corp.,Energy,Oil & Gas Equipment & Services,3885225436.586197
+57,GIB.A,CGI Inc.,Information Technology,Software,
+58,CSH.UN,Chartwell Retirement Residences,Real Estate,Real Estate,
+59,CHP.UN,Choice Properties Real Estate Investment Trust,Real Estate,REITs,
+60,CIX,CI Financial Corp.,Financial Services,Asset Management,
+61,CCA,Cogeco Communications Inc.,Communication Services,Telecommunication Services,2976743419.9871826
+62,CIGI,Colliers International Group Inc.,Real Estate,Real Estate,7570009254.260376
+63,CSU,Constellation Software Inc.,Information Technology,Software,53489118697.98828
+64,CRR.UN,Crombie Real Estate Investment Trust,Real Estate,REITs,
+65,CRT.UN,CT Real Estate Investment Trust,Real Estate,REITs,
+66,DFY,Definity Financial Corporation,Financial Services,Insurance,8168786670.684814
+67,DML,Denison Mines Corp.,Energy,Other Energy Sources,4710775340.25
+68,DSG,Descartes Systems Group Inc.,Information Technology,Software,8557408336.307945
+69,DOL,Dollarama Inc.,Consumer Staples,Retailers - Staples,53280988013.0
+70,DIR.UN,Dream Industrial Real Estate Investment Trust,Real Estate,REITs,
+71,DPM,Dundee Precious Metals Inc.,Basic Materials,Metals & Mining,10967123363.281345
+72,ELD,Eldorado Gold Corporation,Basic Materials,Metals & Mining,9984117239.158615
+73,EFN,Element Fleet Management Corp.,Industrials,Business Services,12259268870.988993
+74,EMA,Emera Incorporated,Utilities,Regulated Utilities,22157815257.02809
+75,EMP.A,Empire Company Limited,Consumer Staples,Retailers - Staples,
+76,ENB,Enbridge Inc.,Energy,Oil & Gas Storage/Transport,162153237335.20508
+77,EFR,Energy Fuels Inc.,Energy,Other Energy Sources,6189945922.763824
+78,ENGH,Enghouse Systems Limited,Information Technology,Software,831723626.9840202
+79,EQB,EQB Inc.,Financial Services,Banks,3867856945.7276917
+80,EQX,Equinox Gold Corp.,Basic Materials,Metals & Mining,15773521399.623413
+81,ERO,Ero Copper Corp.,Basic Materials,Metals & Mining,3725504607.7095795
+82,EIF,Exchange Income Corporation,Industrials,Transportation,5579873365.733826
+83,FFH,Fairfax Financial Holdings Limited,Financial Services,Insurance,48618425574.33716
+84,FIL,Filo Corp.,Basic Materials,Metals & Mining,
+85,FTT,Finning International Inc.,Industrials,Industrial Distribution,11775392844.338898
+86,FCR.UN,First Capital Real Estate Investment Trust,Real Estate,REITs,
+87,AG,First Majestic Silver Corp.,Basic Materials,Metals & Mining,15267530015.959328
+88,FM,First Quantum Minerals Ltd.,Basic Materials,Metals & Mining,26858076643.22235
+89,FSV,FirstService Corporation,Real Estate,Real Estate,8907127425.735443
+90,FTS,Fortis Inc.,Utilities,Regulated Utilities,40551407070.92285
+91,FVI,Fortuna Mining Corp.,Basic Materials,Metals & Mining,4334274967.191217
+92,FNV,Franco-Nevada Corporation,Basic Materials,Metals & Mining,66602557359.94116
+93,FRU,Freehold Royalties Ltd.,Energy,Oil & Gas Exploration and Production,2785686054.1224575
+94,WN,George Weston Limited,Consumer Staples,Retailers - Staples,37246072061.04256
+95,GFL,GFL Environmental Inc.,Industrials,Waste Management,21144940734.0
+96,GEI,Gibson Energy Inc.,Energy,Oil & Gas Storage/Transport,5120440078.735352
+97,GIL,Gildan Activewear Inc.,Consumer Cyclical,Apparel & Accessories,14921419163.765945
+98,GSY,goeasy Ltd.,Financial Services,Credit Services,573554559.3607788
+99,GRT.UN,Granite Real Estate Investment Trust,Real Estate,REITs,
+100,GWO,Great-West Lifeco Inc.,Financial Services,Insurance,57386549826.43242
+101,HR.UN,H&R Real Estate Investment Trust,Real Estate,REITs,
+102,HWX,Headwater Exploration Inc.,Energy,Oil & Gas Exploration and Production,2986923645.9184856
+103,HBM,Hudbay Minerals Inc.,Basic Materials,Metals & Mining,11278338084.89688
+104,H,Hydro One Limited,Utilities,Regulated Utilities,36040889174.59944
+105,IAG,iA Financial Corporation Inc.,Financial Services,Insurance,13575511305.509903
+106,IMG,Iamgold Corporation,Basic Materials,Metals & Mining,16148097163.93425
+107,IGM,IGM Financial Inc.,Financial Services,Asset Management,14916744851.006012
+108,IMO,Imperial Oil Limited,Energy,Integrated Oil & Gas,82250366604.14124
+109,INE,Innergex Renewable Energy Inc.,Energy,Renewable Energy Producers,
+110,IFC,Intact Financial Corporation,Financial Services,Insurance,45814430986.39047
+111,IFP,Interfor Corporation,Basic Materials,Forest Products,582695163.2807093
+112,IPCO,International Petroleum Corporation,Energy,Oil & Gas Exploration and Production,3851905278.556015
+113,IIP.UN,InterRent Real Estate Investment Trust,Real Estate,REITs,
+114,IVN,Ivanhoe Mines Ltd.,Basic Materials,Metals & Mining,17738977292.962173
+115,JWEL,Jamieson Wellness Inc.,Consumer Staples,Consumer Packaged Goods,1428284985.657196
+116,KNT,K92 Mining Inc.,Basic Materials,Metals & Mining,5970117866.224182
+117,KEL,Kelt Exploration Ltd.,Energy,Oil & Gas Exploration and Production,1863997376.0490417
+118,KEY,Keyera Corp.,Energy,Oil & Gas Storage/Transport,12392736137.971092
+119,KMP.UN,Killam Apartment Real Estate Investment Trust,Real Estate,REITs,
+120,KXS,Kinaxis Inc.,Information Technology,Software,3733465547.1986847
+121,K,Kinross Gold Corporation,Basic Materials,Metals & Mining,50661988473.51074
+122,LIF,Labrador Iron Ore Royalty Corporation,Basic Materials,Steel,1764479980.46875
+123,LB,Laurentian Bank of Canada,Financial Services,Banks,1795097895.8217163
+124,LSPD,Lightspeed Commerce Inc.,Information Technology,Software,1666833446.5985365
+125,LNR,Linamar Corporation,Consumer Cyclical,Vehicles & Parts,5210004449.074814
+126,L,Loblaw Companies Limited,Consumer Staples,Retailers - Staples,74206909468.7139
+127,LUG,Lundin Gold Inc.,Basic Materials,Metals & Mining,25198255325.842438
+128,LUN,Lundin Mining Corporation,Basic Materials,Metals & Mining,29417642288.77768
+129,MAG,MAG Silver Corp.,Basic Materials,Metals & Mining,
+130,MG,Magna International Inc.,Consumer Cyclical,Vehicles & Parts,21302338654.595367
+131,MFC,Manulife Financial Corporation,Financial Services,Insurance,76938976403.02457
+132,MFI,Maple Leaf Foods Inc.,Consumer Staples,Consumer Packaged Goods,3599680805.448578
+133,MATR,Mattr Corp.,Energy,Oil & Gas Equipment & Services,544932577.7639999
+134,MDA,MDA Space Ltd.,Industrials,Aerospace & Defense,5225235812.465378
+135,MEG,MEG Energy Corp.,Energy,Oil & Gas Exploration and Production,
+136,MX,Methanex Corporation,Basic Materials,Chemicals,5493426082.221405
+137,MRU,Metro Inc.,Consumer Staples,Retailers - Staples,20253702324.46289
+138,MTY,MTY Food Group Inc.,Consumer Cyclical,Restaurants,885559615.1959457
+139,MTL,Mullen Group Ltd.,Industrials,Transportation,1541196822.607563
+140,,National Bank of Canada,Financial Services,Banks,
+141,NGD,New Gold Inc.,Basic Materials,Metals & Mining,10830824288.335876
+142,NXE,NexGen Energy Ltd.,Energy,Other Energy Sources,10953922506.877579
+143,NFI,NFI Group Inc.,Consumer Cyclical,Vehicles & Parts,2017299353.758232
+144,NWC,North West Company Inc.,Consumer Staples,Retailers - Staples,2603085300.9375916
+145,NPI,Northland Power Inc.,Energy,Renewable Energy Producers,5601373802.431023
+146,NWH.UN,NorthWest Healthcare Properties Real Estate Investment Trust,Real Estate,REITs,
+147,NG,NovaGold Resources Inc.,Basic Materials,Metals & Mining,6250467572.1471405
+148,NTR,Nutrien Ltd.,Basic Materials,Agriculture,54999321968.38149
+149,NVEI,Nuvei Corporation,Information Technology,Software,
+150,NVA,NuVista Energy Ltd.,Energy,Oil & Gas Exploration and Production,3752144160.7999997
+151,OGC,OceanaGold Corporation,Basic Materials,Metals & Mining,10659516933.841393
+152,ONEX,Onex Corporation,Financial Services,Asset Management,6588513738.740845
+153,OTEX,Open Text Corporation,Information Technology,Software,7943389073.281513
+154,OLA,Orla Mining Ltd.,Basic Materials,Metals & Mining,7640866892.487858
+155,OR,Osisko Gold Royalties Ltd.,Basic Materials,Metals & Mining,10408777974.809418
+156,OSK,Osisko Mining Inc.,Basic Materials,Metals & Mining,
+157,PAAS,Pan American Silver Corp.,Basic Materials,Metals & Mining,32495970372.73535
+158,POU,Paramount Resources Ltd.,Energy,Oil & Gas Exploration and Production,4290123867.7978516
+159,PXT,Parex Resources Inc.,Energy,Oil & Gas Exploration and Production,2503005485.6377544
+160,PKI,Parkland Corporation,Energy,Oil & Gas Refining & Marketing,
+161,PSI,Pason Systems Inc.,Energy,Oil & Gas Equipment & Services,973738633.8978643
+162,PPL,Pembina Pipeline Corporation,Energy,Oil & Gas Storage/Transport,35617834970.4895
+163,PET,Pet Valu Holdings Ltd.,Consumer Cyclical,Retail - Discretionary,1566882209.1853027
+164,PEY,Peyto Exploration & Development Corp.,Energy,Oil & Gas Exploration and Production,5850963723.339066
+165,POW,Power Corporation of Canada,Financial Services,Insurance,42009807375.0
+166,PSK,PrairieSky Royalty Ltd.,Energy,Oil & Gas Exploration and Production,7351372115.509033
+167,PD,Precision Drilling Corporation,Energy,Oil & Gas Drilling,1671319190.042038
+168,PBH,Premium Brands Holdings Corporation,Consumer Staples,Consumer Packaged Goods,4183739913.984375
+169,PMZ.UN,Primaris Real Estate Investment Trust,Real Estate,REITs,
+170,PRMW,Primo Water Corporation,Consumer Staples,Non-Alcoholic Beverages,5998810400.0
+171,QBR.B,Quebecor Inc.,Communication Services,Telecommunication Services,
+172,QSR,Restaurant Brands International Inc.,Consumer Cyclical,Restaurants,45453873768.62703
+173,RCH,Richelieu Hardware Ltd.,Consumer Cyclical,Home and Homeware,2296047202.150818
+174,REI.UN,RioCan Real Estate Investment Trust,Real Estate,REITs,
+175,RCI.B,Rogers Communications Inc.,Communication Services,Telecommunication Services,
+176,RY,Royal Bank of Canada,Financial Services,Banks,310104950470.1332
+177,RUS,Russel Metals Inc.,Industrials,Industrial Distribution,2545504954.6747284
+178,SSL,Sandstorm Gold Ltd.,Basic Materials,Metals & Mining,
+179,SAP,Saputo Inc.,Consumer Staples,Consumer Packaged Goods,17215199929.68933
+180,SEA,Seabridge Gold Inc.,Basic Materials,Metals & Mining,4590350435.386368
+181,SES,Secure Energy Services Inc.,Industrials,Waste Management,4394932362.943176
+182,SHOP,Shopify Inc.,Information Technology,Software,221200661518.74344
+183,SIA,Sienna Senior Living Inc.,Healthcare,Healthcare Providers & Services,2260087622.5118465
+184,SIL,SilverCrest Metals Inc.,Basic Materials,Metals & Mining,
+185,SRU.UN,SmartCentres Real Estate Investment Trust,Real Estate,REITs,
+186,SOBO,South Bow Corporation,Energy,Oil & Gas Storage/Transport,9581605707.57843
+187,TOY,Spin Master Corp.,Consumer Cyclical,Travel & Leisure,1873827315.630558
+188,SII,Sprott Inc.,Financial Services,Asset Management,5229453201.093414
+189,SSRM,SSR Mining Inc.,Basic Materials,Metals & Mining,7860594031.0948715
+190,STN,Stantec Inc.,Industrials,Construction,13818075825.81903
+191,STLC,Stelco Holdings Inc.,Basic Materials,Steel,
+192,SJ,Stella-Jones Inc.,Basic Materials,Forest Products,5325459879.605331
+193,SVI,StorageVault Canada Inc.,Real Estate,Real Estate,1628863048.351882
+194,SLF,Sun Life Financial Inc.,Financial Services,Insurance,47718728615.888626
+195,SU,Suncor Energy Inc.,Energy,Integrated Oil & Gas,97372937463.43846
+196,SPB,Superior Plus Corp.,Utilities,Regulated Utilities,1467141155.1287556
+197,TVE,Tamarack Valley Energy Ltd.,Energy,Oil & Gas Exploration and Production,5217951285.976052
+198,TRP,TC Energy Corporation,Energy,Oil & Gas Storage/Transport,91087500000.0
+199,TECK.B,Teck Resources Limited,Basic Materials,Metals & Mining,
+200,T,Telus Corporation,Communication Services,Telecommunication Services,28113610357.284546
+201,TFII,TFI International Inc.,Industrials,Transportation,11520292980.0
+202,TRI,Thomson Reuters Corporation,Industrials,Business Services,58820256286.75
+203,TLRY,Tilray Brands Inc.,Healthcare,Drug Manufacturers,1104485510.3473663
+204,X,TMX Group Limited,Financial Services,Capital Markets,13654333418.769745
+205,TPZ,Topaz Energy Corp.,Energy,Oil & Gas Storage/Transport,4855985976.409912
+206,TXG,Torex Gold Resources Inc.,Basic Materials,Metals & Mining,6386141373.018417
+207,TIH,Toromont Industries Ltd.,Industrials,Industrial Distribution,16098962596.607208
+208,TD,Toronto-Dominion Bank,Financial Services,Banks,214001902950.21057
+209,TOU,Tourmaline Oil Corp.,Energy,Oil & Gas Exploration and Production,25977179492.034912
+210,TA,TransAlta Corporation,Utilities,Independent Power Producers,5078248181.152344
+211,TCL.A,Transcontinental Inc.,Consumer Cyclical,Packaging & Containers,
+212,TFPM,Triple Flag Precious Metals Corp.,Basic Materials,Metals & Mining,10171537527.801922
+213,TSU,Trisura Group Ltd.,Financial Services,Insurance,2093901650.8144684
+214,VRN,Veren Inc.,Energy,Oil & Gas Exploration and Production,
+215,VET,Vermilion Energy Inc.,Energy,Oil & Gas Exploration and Production,2488940924.178623
+216,WCN,Waste Connections Inc.,Industrials,Waste Management,58639088072.59564
+217,WDO,Wesdome Gold Mines Ltd.,Basic Materials,Metals & Mining,3677610169.5442963
+218,WFG,West Fraser Timber Co. Ltd.,Basic Materials,Forest Products,6942114398.642143
+219,WPM,Wheaton Precious Metals Corp.,Basic Materials,Metals & Mining,87230458654.06421
+220,WCP,Whitecap Resources Inc.,Energy,Oil & Gas Exploration and Production,17381615629.577637
+221,WPK,Winpak Ltd.,Consumer Cyclical,Packaging & Containers,2648611964.5118713
+222,WSP,WSP Global Inc.,Industrials,Construction,29933844356.047623

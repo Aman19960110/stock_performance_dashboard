@@ -1,0 +1,301 @@
+,Ticker,Company,Segment,Exchange,Weighting (%)
+0,600519.SS,Kweichow Moutai,Consumer Staples,Shanghai,5.972
+1,601318.SS,Ping An Insurance,Financials,Shanghai,2.59
+2,300750.SS,CATL,Industrials,Shenzhen,2.421
+3,600036.SS,China Merchants Bank,Financials,Shanghai,2.225
+4,000333.SS,Midea Group,Consumer Discretionary,Shenzhen,1.727
+5,000858.SS,Wuliangye Yibin,Consumer Staples,Shenzhen,1.549
+6,600900.SS,China Yangtze Power,Utilities,Shanghai,1.375
+7,601166.SS,Industrial Bank,Financials,Shanghai,1.358
+8,601899.SS,Zijin Mining Group,Materials,Shanghai,1.211
+9,600030.SS,CITIC Securities,Financials,Shanghai,1.166
+10,600276.SS,Jiangsu Hengrui Medicine,Health Care,Shanghai,1.068
+11,601398.SS,Industrial and Commercial Bank of China,Financials,Shanghai,1.048
+12,600887.SS,Inner Mongolia Yili Industrial Group,Consumer Staples,Shanghai,1.012
+13,300059.SS,East Money,Financials,Shenzhen,0.999
+14,000651.SS,Gree Electric,Consumer Discretionary,Shenzhen,0.987
+15,300760.SS,Mindray,Health Care,Shenzhen,0.983
+16,002594.SS,BYD,Consumer Discretionary,Shenzhen,0.972
+17,601328.SS,Bank of Communications,Financials,Shanghai,0.966
+18,600309.SS,Wanhua Chemical Group,Materials,Shanghai,0.841
+19,000725.SS,BOE Technology Group,Information Technology,Shenzhen,0.839
+20,600919.SS,Bank of Jiangsu,Financials,Shanghai,0.79
+21,002475.SS,Luxshare Precision Industry,Information Technology,Shenzhen,0.774
+22,300124.SS,Shenzhen Inovance Technology,Industrials,Shenzhen,0.757
+23,601288.SS,Agricultural Bank of China,Financials,Shanghai,0.75
+24,002415.SS,Hangzhou Hikvision Digital Technology,Information Technology,Shenzhen,0.732
+25,000568.SS,Luzhou Lao Jiao,Consumer Staples,Shenzhen,0.726
+26,601012.SS,Longi Green Energy Technology,Information Technology,Shanghai,0.722
+27,601088.SS,China Shenhua Energy,Energy,Shanghai,0.714
+28,601816.SS,Beijing-Shanghai High Speed Railway,Industrials,Shanghai,0.696
+29,600028.SS,China Petroleum & Chemical Corporation,Energy,Shanghai,0.667
+30,600809.SS,Shanxi Xinghuacun Fen Wine Factory,Consumer Staples,Shanghai,0.638
+31,601668.SS,China State Construction Engineering,Industrials,Shanghai,0.629
+32,603259.SS,WuXi AppTec,Health Care,Shanghai,0.627
+33,002714.SS,Muyuan Foodstuff,Consumer Staples,Shenzhen,0.59
+34,000001.SS,Ping An Bank,Financials,Shenzhen,0.576
+35,300498.SS,Wens Foodstuff Group,Consumer Staples,Shenzhen,0.572
+36,600016.SS,China Minsheng Bank,Financials,Shanghai,0.563
+37,601857.SS,PetroChina,Energy,Shanghai,0.562
+38,601225.SS,Shaanxi Coal Industry Company,Energy,Shanghai,0.561
+39,300308.SS,Zhongji Innolight,Information Technology,Shenzhen,0.559
+40,688981.SS,Semiconductor Manufacturing International Corporation,Information Technology,Shanghai,0.535
+41,000063.SS,ZTE,Information Technology,Shenzhen,0.534
+42,601988.SS,Bank of China,Financials,Shanghai,0.528
+43,002352.SS,S.F. Holding,Industrials,Shenzhen,0.527
+44,600406.SS,NARI Technology,Industrials,Shanghai,0.522
+45,600941.SS,China Mobile,Communication,Shanghai,0.517
+46,000338.SS,Weichai Power,Industrials,Shenzhen,0.514
+47,600050.SS,China United Network Communications,Communication,Shanghai,0.514
+48,002230.SS,Iflytek,Information Technology,Shenzhen,0.513
+49,600690.SS,Qingdao Haier,Consumer Discretionary,Shanghai,0.512
+50,601728.SS,China Telecom Corporation,Communication,Shanghai,0.51
+51,300274.SS,Sungrow Power Supply,Industrials,Shenzhen,0.509
+52,002142.SS,Bank of Ningbo,Financials,Shenzhen,0.495
+53,600837.SS,Haitong Securities Company,Financials,Shanghai,0.495
+54,000792.SS,Qinghai Salt Lake Potash,Materials,Shenzhen,0.492
+55,601601.SS,China Pacific Insurance,Financials,Shanghai,0.492
+56,000100.SS,TCL Corporation,Information Technology,Shenzhen,0.477
+57,601888.SS,China International Travel Service,Consumer Discretionary,Shanghai,0.477
+58,600000.SS,Shanghai Pudong Development Bank,Financials,Shanghai,0.471
+59,600031.SS,Sany Heavy Industry,Industrials,Shanghai,0.464
+60,601985.SS,China National Nuclear Power,Utilities,Shanghai,0.46
+61,600150.SS,China CSSC Holdings,Industrials,Shanghai,0.445
+62,688041.SS,Hygon Information Technology,Information Technology,Shanghai,0.444
+63,601766.SS,CRRC Corporation,Industrials,Shanghai,0.435
+64,601169.SS,Bank of Beijing,Financials,Shanghai,0.43
+65,002371.SS,NAURA Technology Group,Information Technology,Shenzhen,0.422
+66,600089.SS,TBEA,Industrials,Shanghai,0.422
+67,601688.SS,Huatai Securities,Financials,Shanghai,0.42
+68,601138.SS,Foxconn Industrial Internet,Information Technology,Shanghai,0.417
+69,000625.SS,Chongqing Changan Automobile,Consumer Discretionary,Shenzhen,0.415
+70,600438.SS,Tongwei Company,Information Technology,Shanghai,0.402
+71,600048.SS,Poly Real Estate Group,Real Estate,Shanghai,0.394
+72,603501.SS,Will Semiconductor,Information Technology,Shanghai,0.393
+73,600104.SS,SAIC Motor,Consumer Discretionary,Shanghai,0.392
+74,600660.SS,Fuyao Glass Industry Group,Consumer Discretionary,Shanghai,0.389
+75,000002.SS,China Vanke,Real Estate,Shenzhen,0.383
+76,300015.SS,Aier Eye Hospital,Health Care,Shenzhen,0.383
+77,601211.SS,Guotai Junan Securities,Financials,Shanghai,0.382
+78,603288.SS,Foshan Haitian Flavouring & Food Co,Consumer Staples,Shanghai,0.38
+79,600436.SS,Zhangzhou Pientzehuang Pharmaceutical,Health Care,Shanghai,0.377
+80,601919.SS,China Cosco Holdings,Industrials,Shanghai,0.376
+81,600905.SS,China Three Gorges Renewables (Group),Utilities,Shanghai,0.371
+82,601390.SS,China Railway Group Limited,Industrials,Shanghai,0.366
+83,601229.SS,Bank of Shanghai,Financials,Shanghai,0.364
+84,300122.SS,Chongqing Zhifei Biological Products,Health Care,Shenzhen,0.36
+85,002027.SS,Focus Media Information Technology,Communication,Shenzhen,0.357
+86,688012.SS,Advanced Micro-Fabrication Equipment,Information Technology,Shanghai,0.357
+87,688111.SS,Beijing Kingsoft Office Software,Information Technology,Shanghai,0.351
+88,601006.SS,Daqin Railway,Industrials,Shanghai,0.343
+89,002304.SS,Jiangsu Yanghe Brewery Joint-Stock,Consumer Staples,Shenzhen,0.341
+90,601818.SS,China Everbright Bank,Financials,Shanghai,0.335
+91,600019.SS,Baoshan Iron and Steel,Materials,Shanghai,0.331
+92,688271.SS,United Imaging,Health Care,Shanghai,0.329
+93,603019.SS,Dawning Information Industry,Information Technology,Shanghai,0.327
+94,600585.SS,Anhui Conch Cement,Materials,Shanghai,0.322
+95,002050.SS,ZHEJIANG SANHUA INTELLIGENT CONTROLS,Industrials,Shenzhen,0.313
+96,002466.SS,Tianqi Lithium Industries,Materials,Shenzhen,0.311
+97,601658.SS,Postal Savings Bank of China,Financials,Shanghai,0.302
+98,601989.SS,China Shipbuilding Industry Company,Industrials,Shanghai,0.301
+99,600938.SS,CNOOC Limited,Energy,Shanghai,0.297
+100,600999.SS,China Merchants Securities,Financials,Shanghai,0.294
+101,688036.SS,Transsion,Information Technology,Shanghai,0.287
+102,000938.SS,Unisplendour,Information Technology,Shenzhen,0.284
+103,601628.SS,China Life Insurance Company,Financials,Shanghai,0.283
+104,603986.SS,GigaDevice,Information Technology,Shanghai,0.274
+105,002049.SS,Unigroup Guoxin Microelectronics,Information Technology,Shenzhen,0.273
+106,601600.SS,Aluminum Corporation of China Limited,Materials,Shanghai,0.269
+107,600111.SS,China Northern Rare Earth Group,Materials,Shanghai,0.268
+108,688008.SS,Montage Technology,Information Technology,Shanghai,0.267
+109,300014.SS,Eve Energy,Industrials,Shenzhen,0.264
+110,601939.SS,China Construction Bank,Financials,Shanghai,0.264
+111,600958.SS,Orient Securities,Financials,Shanghai,0.258
+112,600893.SS,AVIC Aviation Engine Corporation,Industrials,Shanghai,0.257
+113,002460.SS,Ganfeng Lithium,Materials,Shenzhen,0.254
+114,601009.SS,Bank of Nanjing,Financials,Shanghai,0.254
+115,000538.SS,Yunnan Baiyao Group,Health Care,Shenzhen,0.251
+116,601669.SS,Power Construction Corporation of China,Industrials,Shanghai,0.247
+117,600009.SS,Shanghai International Airport,Industrials,Shanghai,0.246
+118,002129.SS,Tianjin Zhonghuan Semiconductor,Information Technology,Shenzhen,0.245
+119,603993.SS,China Molybdenum,Materials,Shanghai,0.244
+120,600886.SS,SDIC Power Holdings,Utilities,Shanghai,0.241
+121,600760.SS,AVIC SHENYANG AIRCRAFT COMPANY,Industrials,Shanghai,0.237
+122,000425.SS,XCMG Construction Machinery,Industrials,Shenzhen,0.236
+123,000776.SS,GF Securities,Financials,Shenzhen,0.235
+124,601916.SS,China Zheshang Bank,Financials,Shanghai,0.235
+125,600795.SS,GD Power Development,Utilities,Shanghai,0.234
+126,000661.SS,Chang Chun High and New Technology Industry (Group),Health Care,Shenzhen,0.233
+127,000166.SS,Shenwan Hongyuan,Financials,Shenzhen,0.232
+128,600426.SS,Shandong Hualu-Hengsheng Chemical,Materials,Shanghai,0.229
+129,600015.SS,Hua Xia Bank,Financials,Shanghai,0.226
+130,300782.SS,Maxscend Microelectronics,Information Technology,Shenzhen,0.225
+131,601377.SS,Industrial Securities,Financials,Shanghai,0.225
+132,601186.SS,China Railway Construction,Industrials,Shanghai,0.224
+133,000157.SS,Zoomlion Heavy Industry Science & Technology,Industrials,Shenzhen,0.223
+134,002241.SS,GoerTek,Information Technology,Shenzhen,0.223
+135,600926.SS,Bank of Hangzhou,Financials,Shanghai,0.221
+136,600547.SS,Shandong Gold-Mining,Materials,Shanghai,0.22
+137,600011.SS,Huaneng Power International,Utilities,Shanghai,0.218
+138,000977.SS,Inspur Electronic Information Industry,Information Technology,Shenzhen,0.216
+139,002252.SS,Shanghai RAAS Blood Products,Health Care,Shenzhen,0.215
+140,600674.SS,Sichuan Chuantou Energy,Utilities,Shanghai,0.214
+141,603799.SS,ZHEJIANG HUAYOU COBALT,Materials,Shanghai,0.213
+142,600584.SS,JCET,Information Technology,Shanghai,0.21
+143,600570.SS,Hundsun Technologies,Information Technology,Shanghai,0.208
+144,002236.SS,Zhejiang Dahua Technology,Information Technology,Shenzhen,0.205
+145,002179.SS,AVIC Jonhon Optronic Technology,Information Technology,Shenzhen,0.204
+146,000596.SS,Anhui Gujing Distillery,Consumer Staples,Shenzhen,0.201
+147,002311.SS,Guangdong Haid Group,Consumer Staples,Shenzhen,0.201
+148,600188.SS,Yanzhou Coal Mining,Energy,Shanghai,0.2
+149,300896.SS,IMEIK TECHNOLOGY DEVELOPMENT,Health Care,Shenzhen,0.198
+150,688256.SS,Cambricon Technologies,Information Technology,Shanghai,0.197
+151,600010.SS,Inner Mongolia Baotou Steel Union,Materials,Shanghai,0.196
+152,002271.SS,Beijing Oriental Yuhong Waterproof Technology,Materials,Shenzhen,0.195
+153,601111.SS,Air China,Industrials,Shanghai,0.195
+154,001979.SS,China Merchants Shekou Industrial Zone Holdings,Real Estate,Shenzhen,0.192
+155,300408.SS,Chaozhou Three-Circle,Information Technology,Shenzhen,0.191
+156,600845.SS,Baosight Software,Information Technology,Shanghai,0.189
+157,603369.SS,Jiangsu King's Luck Brewery Joint-Stock,Consumer Staples,Shanghai,0.189
+158,600989.SS,Ningxia Baofeng Energy Group,Materials,Shanghai,0.188
+159,600745.SS,Wingtech,Information Technology,Shanghai,0.186
+160,601788.SS,Everbright Securities,Financials,Shanghai,0.185
+161,600115.SS,China Eastern Airlines Corp,Industrials,Shanghai,0.183
+162,600029.SS,China Southern Airlines,Industrials,Shanghai,0.179
+163,002601.SS,LB Group,Materials,Shenzhen,0.176
+164,601360.SS,360 Security Technology,Information Technology,Shanghai,0.176
+165,601901.SS,Founder Securities,Financials,Shanghai,0.176
+166,002493.SS,Rongsheng Petro Chemical,Materials,Shenzhen,0.175
+167,600196.SS,Fosun Pharmaceutical,Health Care,Shanghai,0.175
+168,002459.SS,JA Solar Technology,Information Technology,Shenzhen,0.174
+169,601699.SS,Shanxi Lu'an Environmental Energy Development,Energy,Shanghai,0.173
+170,601995.SS,China International Capital Corporation,Financials,Shanghai,0.172
+171,600085.SS,Beijing Tongrentang,Health Care,Shanghai,0.171
+172,601100.SS,Jiangsu Hengli Hydraulic,Industrials,Shanghai,0.171
+173,601800.SS,China Communications Construction Company,Industrials,Shanghai,0.171
+174,000895.SS,Henan Shuanghui Investment & Development,Consumer Staples,Shenzhen,0.17
+175,002555.SS,37 Interactive Entertainment Network Technology Group,Communication,Shenzhen,0.17
+176,003816.SS,CGN Power,Utilities,Shenzhen,0.17
+177,600489.SS,Zhongjin Gold,Materials,Shanghai,0.17
+178,601066.SS,China Securities,Financials,Shanghai,0.17
+179,000963.SS,Huadong Medicine,Health Care,Shenzhen,0.166
+180,300142.SS,Walvax Biotechnology,Health Care,Shenzhen,0.166
+181,300033.SS,Hithink RoyalFlush Information Network,Financials,Shenzhen,0.165
+182,000768.SS,AVIC Aircraft,Industrials,Shenzhen,0.163
+183,601633.SS,Great Wall Motor,Consumer Discretionary,Shanghai,0.162
+184,000786.SS,Beijing New Building Materials Public,Industrials,Shenzhen,0.16
+185,002920.SS,Huizhou Desay SV Automotive,Consumer Discretionary,Shenzhen,0.16
+186,600600.SS,Tsingtao Brewery,Consumer Staples,Shanghai,0.16
+187,601868.SS,China Energy Engineering Corporation,Industrials,Shanghai,0.159
+188,002648.SS,SATELLITE CHEMICAL,Materials,Shenzhen,0.157
+189,601021.SS,Spring Airlines,Industrials,Shanghai,0.157
+190,603392.SS,BEIJING WANTAI BIOLOGICAL PHARMACY ENTERPRISE,Health Care,Shanghai,0.157
+191,000301.SS,Jiangsu Eastern Shenghong,Materials,Shenzhen,0.156
+192,002001.SS,Zhejiang NHU,Health Care,Shenzhen,0.156
+193,600741.SS,HUAYU Automotive Systems Company,Consumer Discretionary,Shanghai,0.154
+194,601336.SS,New China Life Insurance,Financials,Shanghai,0.153
+195,601689.SS,Ningbo Tuopu Group,Consumer Discretionary,Shanghai,0.153
+196,688599.SS,Trina Solar,Information Technology,Shanghai,0.153
+197,002812.SS,Yunnan Energy New Material,Materials,Shenzhen,0.151
+198,600346.SS,Hengli Petrochemical,Materials,Shanghai,0.151
+199,000983.SS,Shanxi Coking Coal Energy Group,Energy,Shenzhen,0.148
+200,601881.SS,China Galaxy Securities,Financials,Shanghai,0.148
+201,600588.SS,Yonyou Network Technology,Information Technology,Shanghai,0.146
+202,600515.SS,Hainan Airport Infrastructure,Real Estate,Shanghai,0.144
+203,601117.SS,China National Chemical Engineering,Industrials,Shanghai,0.144
+204,601838.SS,BANK OF CHENGDU,Financials,Shanghai,0.142
+205,688126.SS,National Silicon Industry Group,Information Technology,Shanghai,0.142
+206,300450.SS,WUXI LEAD INTELLIGENT EQUIPMENT,Industrials,Shenzhen,0.14
+207,002736.SS,Guosen Securities,Financials,Shenzhen,0.139
+208,002821.SS,Asymchem Laboratories (Tianjin),Health Care,Shenzhen,0.136
+209,300316.SS,Zhejiang Jingsheng Mechanical & Electrical,Information Technology,Shenzhen,0.136
+210,300433.SS,Lens Technology,Information Technology,Shenzhen,0.135
+211,600176.SS,CHINA JUSHI,Materials,Shanghai,0.135
+212,002709.SS,Guangzhou Tinci Materials Technology,Materials,Shenzhen,0.134
+213,300347.SS,Hangzhou Tigermed Consulting,Health Care,Shenzhen,0.133
+214,601618.SS,Metallurgical Corporation of China,Industrials,Shanghai,0.133
+215,601872.SS,China Merchants Energy Shipping,Energy,Shanghai,0.132
+216,000408.SS,ZANGGE MINING COMPANY,Materials,Shenzhen,0.13
+217,002180.SS,Ninestar Corporation,Information Technology,Shenzhen,0.13
+218,300661.SS,SG Micro,Information Technology,Shenzhen,0.13
+219,600372.SS,China Avionics Systems,Industrials,Shanghai,0.129
+220,601898.SS,China Coal Energy,Energy,Shanghai,0.128
+221,688396.SS,China Resources Microelectronics,Information Technology,Shanghai,0.127
+222,300496.SS,Thunder Software Technology,Information Technology,Shenzhen,0.125
+223,000733.SS,China Zhenhua (Group) Science & Technology,Information Technology,Shenzhen,0.124
+224,601877.SS,Zhejiang Chint Electrics,Industrials,Shanghai,0.124
+225,600233.SS,YTO Express Group,Industrials,Shanghai,0.123
+226,000999.SS,China Resources Sanjiu Medical & Pharmaceutical,Health Care,Shenzhen,0.122
+227,600219.SS,Shandong Nanshan Aluminium,Materials,Shanghai,0.122
+228,002007.SS,Hualan Biological Engineering,Health Care,Shenzhen,0.121
+229,600023.SS,Zhejiang Zheneng Electric Power,Utilities,Shanghai,0.121
+230,002074.SS,GUOXUAN HIGH-TECH,Industrials,Shenzhen,0.118
+231,002202.SS,Xinjiang Goldwind Science & Technology,Industrials,Shenzhen,0.118
+232,300759.SS,Pharmaron Beijing,Health Care,Shenzhen,0.117
+233,600332.SS,Guangzhou Baiyunshan Pharmaceutical Holdings,Health Care,Shanghai,0.117
+234,603806.SS,HANGZHOU FIRST PV MATERIAL,Information Technology,Shanghai,0.116
+235,600362.SS,Jiangxi Copper,Materials,Shanghai,0.114
+236,000876.SS,New Hope Liuhe,Consumer Staples,Shenzhen,0.113
+237,600183.SS,Shengyi Technology,Information Technology,Shanghai,0.113
+238,601607.SS,Shanghai Pharmaceuticals Holding,Health Care,Shanghai,0.113
+239,601799.SS,Changzhou Xingyu Automotive Lighting Systems,Consumer Discretionary,Shanghai,0.113
+240,301269.SS,Empyrean Technology,Information Technology,Shenzhen,0.111
+241,601238.SS,Guangzhou Automobile Group,Consumer Discretionary,Shanghai,0.111
+242,601878.SS,ZHESHANG SECURITIES,Financials,Shanghai,0.111
+243,601998.SS,China Citic Bank,Financials,Shanghai,0.111
+244,600918.SS,Zhongtai Securities,Financials,Shanghai,0.109
+245,300999.SS,Yihai Kerry,Consumer Staples,Shenzhen,0.108
+246,300223.SS,Ingenic Semiconductor,Information Technology,Shenzhen,0.106
+247,603260.SS,Hoshine Silicon Industry,Materials,Shanghai,0.105
+248,688303.SS,XinJiang Daqo New Energy,Information Technology,Shanghai,0.105
+249,300413.SS,Mango Excellent Media,Communication,Shenzhen,0.104
+250,601615.SS,MingYangSmartEnergyGroup,Industrials,Shanghai,0.104
+251,002410.SS,Glodon Software,Information Technology,Shenzhen,0.102
+252,600875.SS,Dongfang Electric Corporation,Industrials,Shanghai,0.102
+253,002603.SS,Shijiazhuang Yiling Pharmaceutical,Health Care,Shenzhen,0.101
+254,600061.SS,SDIC Essence,Financials,Shanghai,0.099
+255,688223.SS,Jinko Solar,Information Technology,Shanghai,0.099
+256,600460.SS,Hangzhou Silan Microelectronics,Information Technology,Shanghai,0.098
+257,600803.SS,ENN Ecological Holdings,Utilities,Shanghai,0.098
+258,300751.SS,Suzhou Maxwell Technologies,Information Technology,Shenzhen,0.095
+259,600025.SS,HuanengLancang River Hydropower,Utilities,Shanghai,0.094
+260,601319.SS,People's Insurance Company of China,Financials,Shanghai,0.094
+261,002841.SS,Guangzhou Shiyuan Electronic Technology Company,Information Technology,Shenzhen,0.093
+262,600732.SS,Shanghai Aiko Solar Energy,Information Technology,Shanghai,0.093
+263,603659.SS,Shanghai Putailai New Energy Technology,Materials,Shanghai,0.09
+264,300454.SS,Sangfor Technologies,Information Technology,Shenzhen,0.089
+265,300919.SS,CNGR Advanced Material,Materials,Shenzhen,0.089
+266,600132.SS,Chongqing Brewery,Consumer Staples,Shanghai,0.089
+267,000617.SS,CNPC Capital Company,Financials,Shenzhen,0.088
+268,300763.SS,Ginlong Technologies,Industrials,Shenzhen,0.088
+269,000069.SS,Shenzhen Overseas Chinese Town Company,Real Estate,Shenzhen,0.085
+270,600018.SS,Shanghai International Port Group,Industrials,Shanghai,0.085
+271,000708.SS,CITIC Pacific Special Steel Group,Materials,Shenzhen,0.083
+272,300628.SS,Yealink Network Technology,Information Technology,Shenzhen,0.083
+273,002938.SS,Avary Holding (Shenzhen) Co,Information Technology,Shenzhen,0.082
+274,002916.SS,Shennan Circuits,Information Technology,Shenzhen,0.081
+275,605117.SS,Ningbo Deye Technology,Industrials,Shanghai,0.081
+276,600039.SS,Sichuan Road&Bridge,Industrials,Shanghai,0.08
+277,605499.SS,Eastroc Beverage (Group),Consumer Staples,Shanghai,0.08
+278,603195.SS,GONGNIU GROUP,Industrials,Shanghai,0.077
+279,600754.SS,Shanghai Jin Jiang International Hotels,Consumer Discretionary,Shanghai,0.075
+280,603899.SS,SHANGHAI M&G STATIONERY,Industrials,Shanghai,0.074
+281,603290.SS,StarPower Semiconductor,Information Technology,Shanghai,0.073
+282,603833.SS,Oppein Home Group,Consumer Discretionary,Shanghai,0.071
+283,601865.SS,Flat Glass Group,Information Technology,Shanghai,0.07
+284,688363.SS,Bloomage Biotechnology Corporation,Health Care,Shanghai,0.069
+285,000877.SS,Xinjiang Tianshan Cement,Materials,Shenzhen,0.067
+286,688065.SS,Cathay Biotech,Materials,Shanghai,0.063
+287,300957.SS,Yunnan Botanee Bio-Technology Group,Consumer Staples,Shenzhen,0.062
+288,601236.SS,HONGTA SECURITIES,Financials,Shanghai,0.062
+289,601698.SS,China Satellite Communications,Communication,Shanghai,0.06
+290,688187.SS,Zhuzhou CRRC Times Electric,Industrials,Shanghai,0.057
+291,688561.SS,Qi An Xin Technology Group,Information Technology,Shanghai,0.054
+292,601155.SS,Future Land Holdings,Real Estate,Shanghai,0.053
+293,600606.SS,China Development Holdings,Real Estate,Shanghai,0.052
+294,300979.SS,Huali Industrial Group Company,Consumer Discretionary,Shenzhen,0.049
+295,601808.SS,China Oilfield Services,Energy,Shanghai,0.048
+296,603486.SS,Ecovacs Robotics,Consumer Discretionary,Shanghai,0.048
+297,000800.SS,FAW Car,Industrials,Shenzhen,0.046
+298,601059.SS,CINDA SECURITIES,Financials,Shanghai,0.031
+299,001289.SS,China Longyuan Power Group Limited,Utilities,Shenzhen,0.016
