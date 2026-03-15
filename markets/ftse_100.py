@@ -5,7 +5,7 @@ class Ftse():
     def __init__(self):
         pass
     def load_csv(self):
-        df = pd.read_csv("stock_list\FTSE_100.csv")
+        df = pd.read_csv(r"stock_list/FTSE_100.csv")
         df.fillna(0, inplace=True)
         df.rename(columns={'Ticker':'SYMBOL'},inplace=True)
         df.sort_values(by="MarketCap", ascending=False, inplace=True)
