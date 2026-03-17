@@ -86,7 +86,15 @@ def get_market(choice):
     return market,stock_df,group_size
 
 
-def build_chart(total_pct_df,filter_option):
+
+MARKET_LABEL_COLUMNS = {
+    'China': 'Company',    # or whatever column name
+    'Japan': 'Company',  # check the CSV
+}
+
+def build_chart(total_pct_df,filter_option, label_dict=None):
+    if label_dict is None:
+        label_dict = {col: col for col in total_pct_df.columns}
     stats_cols = ["mean_pct_chg","median_pct_change","std","2std"]
     stock_cols = [c for c in total_pct_df.columns if c not in stats_cols]
 
@@ -158,7 +166,7 @@ def build_chart(total_pct_df,filter_option):
                 go.Scatter(
                     x=total_pct_df.index,
                     y=total_pct_df[col],
-                    name=col,
+                    name=label_dict.get(col, col),
                     opacity=0.8,
                     line=dict(width=2)
                 )
@@ -170,7 +178,7 @@ def build_chart(total_pct_df,filter_option):
                 go.Scatter(
                     x=total_pct_df.index,
                     y=total_pct_df[col],
-                    name=f"{col} (hist)",
+                    name=f"{label_dict.get(col, col)} (hist)",
                     opacity=0.6,
                     line=dict(
                         dash="dashdot",
