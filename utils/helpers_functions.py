@@ -1,7 +1,6 @@
 import math
 import yfinance as yf
 import plotly.graph_objects as go
-import utils.helpers_functions as hf
 import streamlit as st
 
 from markets.us import Us_Market
@@ -88,8 +87,14 @@ def get_market(choice):
 
 
 MARKET_LABEL_COLUMNS = {
-    'China': 'Company',    # or whatever column name
-    'Japan': 'Company',  # check the CSV
+    'US': 'Security',
+    'India': 'NAME OF COMPANY',
+    'China': 'Company',
+    'Japan': 'Company',
+    'UK': 'Company',
+    'Germany': 'Company',
+    'France': 'Company',
+    'Canada': 'Company',
 }
 
 def build_chart(total_pct_df,filter_option, label_dict=None):
@@ -106,19 +111,19 @@ def build_chart(total_pct_df,filter_option, label_dict=None):
 
 
     cross_mean = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["mean_pct_chg"])
+        lambda s: cross_up(s,total_pct_df["mean_pct_chg"])
     )
 
     cross_median = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["median_pct_change"])
+        lambda s: cross_up(s,total_pct_df["median_pct_change"])
     )
 
     cross_1sd = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["std"])
+        lambda s: cross_up(s,total_pct_df["std"])
     )
 
     cross_2sd = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["2std"])
+        lambda s: cross_up(s,total_pct_df["2std"])
     )
 
     # =========================
