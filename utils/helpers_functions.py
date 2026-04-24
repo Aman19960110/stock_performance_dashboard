@@ -1,7 +1,6 @@
 import math
 import yfinance as yf
 import plotly.graph_objects as go
-import utils.helpers_functions as hf
 import streamlit as st
 
 from markets.us import Us_Market
