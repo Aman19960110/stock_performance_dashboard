@@ -85,7 +85,21 @@ def get_market(choice):
     return market,stock_df,group_size
 
 
-def build_chart(total_pct_df,filter_option):
+
+MARKET_LABEL_COLUMNS = {
+    'US': 'Security',
+    'India': 'NAME OF COMPANY',
+    'China': 'Company',
+    'Japan': 'Company',
+    'UK': 'Company',
+    'Germany': 'Company',
+    'France': 'Company',
+    'Canada': 'Company',
+}
+
+def build_chart(total_pct_df,filter_option, label_dict=None):
+    if label_dict is None:
+        label_dict = {col: col for col in total_pct_df.columns}
     stats_cols = ["mean_pct_chg","median_pct_change","std","2std"]
     stock_cols = [c for c in total_pct_df.columns if c not in stats_cols]
 
@@ -97,19 +111,19 @@ def build_chart(total_pct_df,filter_option):
 
 
     cross_mean = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["mean_pct_chg"])
+        lambda s: cross_up(s,total_pct_df["mean_pct_chg"])
     )
 
     cross_median = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["median_pct_change"])
+        lambda s: cross_up(s,total_pct_df["median_pct_change"])
     )
 
     cross_1sd = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["std"])
+        lambda s: cross_up(s,total_pct_df["std"])
     )
 
     cross_2sd = total_pct_df[stock_cols].apply(
-        lambda s: hf.cross_up(s,total_pct_df["2std"])
+        lambda s: cross_up(s,total_pct_df["2std"])
     )
 
     # =========================
@@ -157,7 +171,7 @@ def build_chart(total_pct_df,filter_option):
                 go.Scatter(
                     x=total_pct_df.index,
                     y=total_pct_df[col],
-                    name=col,
+                    name=label_dict.get(col, col),
                     opacity=0.8,
                     line=dict(width=2)
                 )
@@ -169,7 +183,7 @@ def build_chart(total_pct_df,filter_option):
                 go.Scatter(
                     x=total_pct_df.index,
                     y=total_pct_df[col],
-                    name=f"{col} (hist)",
+                    name=f"{label_dict.get(col, col)} (hist)",
                     opacity=0.6,
                     line=dict(
                         dash="dashdot",

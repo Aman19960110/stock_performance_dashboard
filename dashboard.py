@@ -33,7 +33,7 @@ market, stock_df, group_size = hf.get_market(choice)
 
 
 total_groups = hf.total_groups(stock_df,group_size)
-st.sidebar.subheader("S&P500 Group")
+st.sidebar.subheader("Group")
 
 group_no = st.sidebar.selectbox(
     "Select Group",
@@ -42,6 +42,10 @@ group_no = st.sidebar.selectbox(
 
 
 df_group = hf.get_group(group_no,group_size,stock_df)
+
+# Create label dict for plot
+label_column = hf.MARKET_LABEL_COLUMNS.get(choice, 'SYMBOL')
+label_dict = dict(zip(df_group['SYMBOL'], df_group[label_column])) if label_column in df_group.columns else {s: s for s in df_group['SYMBOL']}
 
 st.subheader(f"Selected Stock Group (Group {group_no})")
 st.dataframe(df_group, use_container_width=True)
@@ -80,5 +84,5 @@ filter_option = st.sidebar.radio(
 
 
 
-fig = hf.build_chart(total_pct_df, filter_option)
+fig = hf.build_chart(total_pct_df, filter_option, label_dict)
 st.plotly_chart(fig, use_container_width=True)
