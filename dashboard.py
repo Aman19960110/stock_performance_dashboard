@@ -23,7 +23,7 @@ start_date, end_date = st.sidebar.date_input(
     
 )
 
-choice = st.sidebar.selectbox('Select the Market',['US','China','Japan','India','UK','Hong Kong','Germany','France','Canada','Australia'])
+choice = st.sidebar.selectbox('Select the Market',['US','China','Japan','India','UK','Germany','France','Canada','Australia'])
 
 market, stock_df, group_size = hf.get_market(choice)
 

@@ -11,6 +11,7 @@ from markets.ftse_100 import Ftse
 from markets.germany import Dax
 from markets.france import Cac
 from markets.canada import Tsx
+from markets.asx200 import Asx200
 
 
 def get_group(group_no,group_size,df):
@@ -82,6 +83,10 @@ def get_market(choice):
         market = Tsx()
         stock_df = market.load_csv()
         group_size = st.sidebar.number_input('Select the length of group',0,300,25)
+    elif choice == 'Australia':
+        market = Asx200()
+        stock_df = market.load_csv()
+        group_size = st.sidebar.number_input('Select the length of group',0,200,25)
     return market,stock_df,group_size
 
 
