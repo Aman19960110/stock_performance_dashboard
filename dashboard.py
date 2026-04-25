@@ -86,3 +86,9 @@ filter_option = st.sidebar.radio(
 
 fig = hf.build_chart(total_pct_df, filter_option, label_dict)
 st.plotly_chart(fig, use_container_width=True)
+
+st.sidebar.subheader('Rank Delta')
+n_days = st.sidebar.number_input('N-days Ago',1,len(total_pct_df),10)
+rank_delta_df = hf.calculate_pct_rank_delta(total_pct_df,n_days)
+st.subheader('Rising Star')
+st.dataframe(rank_delta_df)

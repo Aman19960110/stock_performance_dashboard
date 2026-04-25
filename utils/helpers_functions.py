@@ -1,4 +1,5 @@
 import math
+import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
 import streamlit as st
@@ -239,3 +240,19 @@ def build_chart(total_pct_df,filter_option, label_dict=None):
         height=650
     )
     return fig
+
+
+def calculate_pct_rank_delta(df,n_days):
+    stock_cols = df.columns.drop(["mean_pct_chg", "median_pct_change", "std", "2std"], errors='ignore')
+
+    
+    pct_rank = df[stock_cols].rank(axis=1, pct=True) * 100
+    n_days_ago = pct_rank.shift(n_days).iloc[-1].astype(int)
+    current_day = pct_rank.iloc[-1].astype(int)
+    current_day.rename("current_day_rank",inplace=True)
+    n_days_ago.rename("n_days_ago_rank",inplace=True)
+    delta_df = pd.merge(current_day,n_days_ago,left_index=True,right_index=True,how='inner')
+    delta_df['rank_delta'] = delta_df['current_day_rank'] - delta_df['n_days_ago_rank']
+    delta_df.sort_values(by='rank_delta',ascending=False,inplace = True)
+    
+    return delta_df
