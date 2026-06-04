@@ -3,6 +3,7 @@ import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
 import streamlit as st
+import numpy as np
 
 from markets.us import Us_Market
 from markets.india import India_Market
@@ -256,3 +257,48 @@ def calculate_pct_rank_delta(df,n_days):
     delta_df.sort_values(by='rank_delta',ascending=False,inplace = True)
     
     return delta_df
+
+
+
+
+def get_stocks_above_52w_high(market,df_group):
+    data = []
+
+    for stock in market.get_symbols(df_group):
+        try:
+            df = yf.download(
+                stock,
+                period="1y",
+                auto_adjust=False,
+                progress=False,
+                multi_level_index=False
+            )
+
+            if df.empty:
+                continue
+
+            previous_52w_high = df["High"].iloc[:-1].max().iloc[0]
+            current_close = df["Close"].iloc[-1].iloc[0]
+
+            data.append({
+                "stock": stock,
+                "previous_52w_high": previous_52w_high,
+                "current_close": current_close
+            })
+
+        except Exception as e:
+            print(f"Error processing {stock}: {e}")
+
+    df_result = pd.DataFrame(data)
+
+    df_result["stock_above_52week_high"] = np.where(
+        df_result["current_close"] >= df_result["previous_52w_high"],
+        1,
+        0
+    )
+
+    final_df = df_result[
+        df_result["stock_above_52week_high"] == 1
+    ].reset_index(drop=True)
+
+    return final_df
