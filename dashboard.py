@@ -3,6 +3,7 @@ import pandas as pd
 import math
 import yfinance as yf
 import plotly.graph_objects as go
+import plotly.express as px
 import utils.helpers_functions as hf
 
 from datetime import date, timedelta
@@ -92,3 +93,27 @@ n_days = st.sidebar.number_input('N-days Ago',1,len(total_pct_df),10)
 rank_delta_df = hf.calculate_pct_rank_delta(total_pct_df,n_days)
 st.subheader('Rising Star')
 st.dataframe(rank_delta_df)
+
+st.subheader(' Stocks Above 52-Week High')
+with st.spinner("Scanning stocks making new 52-week highs..."):
+    stock_df_above_52w = hf.get_stocks_above_52w_high(market, df_group)
+st.dataframe(stock_df_above_52w)
+
+
+sector_perf = hf.get_sector_performance_timeseries(df_group)
+
+plot_df = sector_perf.reset_index()
+
+fig = px.line(
+    plot_df,
+    x="Date",
+    y=sector_perf.columns,
+    title="Equal Weighted Sector Performance"
+)
+
+fig.update_layout(
+    xaxis_title="Date",
+    yaxis_title="Normalized Index (Base = 100)"
+)
+
+st.plotly_chart(fig, use_container_width=True)

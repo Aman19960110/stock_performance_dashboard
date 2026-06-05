@@ -277,8 +277,8 @@ def get_stocks_above_52w_high(market,df_group):
             if df.empty:
                 continue
 
-            previous_52w_high = df["High"].iloc[:-1].max().iloc[0]
-            current_close = df["Close"].iloc[-1].iloc[0]
+            previous_52w_high = df["High"].iloc[:-1].max()
+            current_close = df["Close"].iloc[-1]
 
             data.append({
                 "stock": stock,
@@ -291,14 +291,47 @@ def get_stocks_above_52w_high(market,df_group):
 
     df_result = pd.DataFrame(data)
 
-    df_result["stock_above_52week_high"] = np.where(
-        df_result["current_close"] >= df_result["previous_52w_high"],
-        1,
-        0
-    )
-
+    
     final_df = df_result[
-        df_result["stock_above_52week_high"] == 1
+        df_result["current_close"] >= df_result['previous_52w_high']
     ].reset_index(drop=True)
 
     return final_df
+
+import pandas as pd
+import yfinance as yf
+
+def get_sector_performance_timeseries(df_group, period="1y"):
+
+    sector_perf = pd.DataFrame()
+
+    for sector, group in df_group.groupby("GICS Sector"):
+
+        tickers = group["SYMBOL"].tolist()
+
+        try:
+            prices = yf.download(
+                tickers,
+                period=period,
+                auto_adjust=True,
+                progress=False
+            )["Close"]
+
+            # Single ticker sector
+            if isinstance(prices, pd.Series):
+                prices = prices.to_frame()
+
+            prices = prices.dropna(axis=1, how="all")
+
+            # Normalize to 100
+            normalized = prices.div(prices.iloc[0]).mul(100)
+
+            # Equal weighted sector index
+            sector_index = normalized.mean(axis=1)
+
+            sector_perf[sector] = sector_index
+
+        except Exception as e:
+            print(f"{sector}: {e}")
+
+    return sector_perf
