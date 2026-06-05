@@ -26,7 +26,7 @@ def get_group(group_no,group_size,df):
 def total_groups(df,group_size):
     total_groups = math.ceil(len(df) / group_size)
     return total_groups
-@st.cache_data
+
 def get_data(symbols,start,end):
     df = yf.download(symbols,start,end,progress=False)['Close']
     return df
@@ -103,7 +103,7 @@ MARKET_LABEL_COLUMNS = {
     'France': 'Company',
     'Canada': 'Company',
 }
-@st.cache_data
+
 def build_chart(total_pct_df,filter_option, label_dict=None):
     if label_dict is None:
         label_dict = {col: col for col in total_pct_df.columns}
@@ -260,7 +260,7 @@ def calculate_pct_rank_delta(df,n_days):
 
 
 
-@st.cache_data
+
 def get_stocks_above_52w_high(market,df_group):
     data = []
 
@@ -298,9 +298,8 @@ def get_stocks_above_52w_high(market,df_group):
 
     return final_df
 
-import pandas as pd
-import yfinance as yf
-@st.cache_data
+
+
 def get_sector_performance_timeseries(df_group, period="1y"):
 
     sector_perf = pd.DataFrame()
