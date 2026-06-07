@@ -3,7 +3,6 @@ import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
 import streamlit as st
-import numpy as np
 
 from markets.us import Us_Market
 from markets.india import India_Market
@@ -16,22 +15,76 @@ from markets.canada import Tsx
 from markets.asx200 import Asx200
 
 
-def get_group(group_no,group_size,df):
+STATS_COLUMNS = ["mean_pct_chg", "median_pct_change", "std", "2std"]
+
+MARKET_LABEL_COLUMNS = {
+    "US": "SECURITY",
+    "India": "NAME OF COMPANY",
+    "China": "Company",
+    "Japan": "Company",
+    "UK": "Company",
+    "Germany": "Company",
+    "France": "Company",
+    "Canada": "Company",
+    "Australia": "Company",
+}
+
+MARKET_CONFIG = {
+    "US": (Us_Market, 50),
+    "India": (India_Market, 200),
+    "China": (China, 50),
+    "Japan": (markets.nikkei_225.Nikkei, 50),
+    "UK": (Ftse, 20),
+    "Germany": (Dax, 10),
+    "France": (Cac, 10),
+    "Canada": (Tsx, 25),
+    "Australia": (Asx200, 25),
+}
+
+
+def get_group(group_no, group_size, df):
     start_idx = (group_no - 1) * group_size
     end_idx = start_idx + group_size
     df_group = df.iloc[start_idx:end_idx]
 
     return df_group
 
-def total_groups(df,group_size):
+def total_groups(df, group_size):
     total_groups = math.ceil(len(df) / group_size)
     return total_groups
 
-def get_data(symbols,start,end):
-    df = yf.download(symbols,start,end,progress=False)['Close']
-    return df
+def _close_frame(downloaded):
+    if downloaded.empty:
+        return pd.DataFrame()
 
-def calculate_returs(price_df):
+    if isinstance(downloaded.columns, pd.MultiIndex):
+        if "Close" not in downloaded.columns.get_level_values(0):
+            return pd.DataFrame()
+        close = downloaded["Close"]
+    else:
+        if "Close" not in downloaded.columns:
+            return pd.DataFrame()
+        close = downloaded["Close"]
+
+    if isinstance(close, pd.Series):
+        close = close.to_frame()
+
+    return close.dropna(axis=1, how="all")
+
+
+@st.cache_data(show_spinner=False, ttl=60 * 60)
+def get_data(symbols, start, end):
+    downloaded = yf.download(
+        list(symbols),
+        start=start,
+        end=end,
+        progress=False,
+        auto_adjust=True,
+        group_by="column",
+    )
+    return _close_frame(downloaded)
+
+def calculate_returns(price_df):
     pct_df = price_df.pct_change().fillna(0)
     total_pct_df = ((1 + pct_df).cumprod() - 1) * 100
 
@@ -48,67 +101,31 @@ def calculate_returs(price_df):
 
     return total_pct_df
 
+def calculate_returs(price_df):
+    return calculate_returns(price_df)
+
 def cross_up(stock, level):
     return (stock.shift(1) < level.shift(1)) & (stock >= level)
 
 def get_market(choice):
-    if choice == 'US':
-
-        market = Us_Market()
-        stock_df = market.load_csv()
-        group_size =  st.sidebar.number_input('Select the length of group',0,300,50)
-    elif choice == 'India':
-        market = India_Market()
-        stock_df = market.load_csv()
-        group_size =  st.sidebar.number_input('Select the length of group',0,300,200)
-    elif choice == 'China':
-        market = China()
-        stock_df = market.load_csv()
-        group_size =  st.sidebar.number_input('Select the length of group',0,300,50)
-    elif choice == 'Japan':
-        market = markets.nikkei_225.Nikkei()
-        stock_df = market.load_csv()
-        group_size =  st.sidebar.number_input('Select the length of group',0,300,50)
-    elif choice == 'UK':
-        market = Ftse()
-        stock_df = market.load_csv()
-        group_size =  st.sidebar.number_input('Select the length of group',0,300,20)
-    elif choice == 'Germany':
-        market = Dax()
-        stock_df = market.load_csv()
-        group_size = st.sidebar.number_input('Select the length of group',0,300,10)
-    elif choice == 'France':
-        market = Cac()
-        stock_df = market.load_csv()
-        group_size = st.sidebar.number_input('Select the length of group',0,300,10)
-    elif choice == 'Canada':
-        market = Tsx()
-        stock_df = market.load_csv()
-        group_size = st.sidebar.number_input('Select the length of group',0,300,25)
-    elif choice == 'Australia':
-        market = Asx200()
-        stock_df = market.load_csv()
-        group_size = st.sidebar.number_input('Select the length of group',0,200,25)
-    return market,stock_df,group_size
+    market_class, default_group_size = MARKET_CONFIG[choice]
+    market = market_class()
+    stock_df = market.load_csv()
+    max_group_size = min(300, len(stock_df))
+    group_size = st.sidebar.number_input(
+        "Select the length of group",
+        min_value=1,
+        max_value=max_group_size,
+        value=min(default_group_size, max_group_size),
+        step=1,
+    )
+    return market, stock_df, group_size
 
 
-
-MARKET_LABEL_COLUMNS = {
-    'US': 'Security',
-    'India': 'NAME OF COMPANY',
-    'China': 'Company',
-    'Japan': 'Company',
-    'UK': 'Company',
-    'Germany': 'Company',
-    'France': 'Company',
-    'Canada': 'Company',
-}
-
-def build_chart(total_pct_df,filter_option, label_dict=None):
+def build_chart(total_pct_df, filter_option, label_dict=None):
     if label_dict is None:
         label_dict = {col: col for col in total_pct_df.columns}
-    stats_cols = ["mean_pct_chg","median_pct_change","std","2std"]
-    stock_cols = [c for c in total_pct_df.columns if c not in stats_cols]
+    stock_cols = [c for c in total_pct_df.columns if c not in STATS_COLUMNS]
 
     last_vals = total_pct_df.iloc[-1]
 
@@ -206,28 +223,28 @@ def build_chart(total_pct_df,filter_option, label_dict=None):
         x=total_pct_df.index,
         y=total_pct_df["mean_pct_chg"],
         name="Mean",
-        line=dict(dash="dot", width=3, color="black")
+        line=dict(dash="dot", width=3, color="#1f2937")
     ))
 
     fig.add_trace(go.Scatter(
         x=total_pct_df.index,
         y=total_pct_df["median_pct_change"],
         name="Median",
-        line=dict(dash="dot", width=3, color="blue")
+        line=dict(dash="dot", width=3, color="#2563eb")
     ))
 
     fig.add_trace(go.Scatter(
         x=total_pct_df.index,
         y=total_pct_df["std"],
         name="Std Dev",
-        line=dict(dash="dot", width=3, color="red")
+        line=dict(dash="dot", width=3, color="#dc2626")
     ))
 
     fig.add_trace(go.Scatter(
         x=total_pct_df.index,
         y=total_pct_df["2std"],
         name="2 Std Dev",
-        line=dict(dash="dot", width=3, color="purple")
+        line=dict(dash="dot", width=3, color="#7c3aed")
     ))
 
     # =========================
@@ -238,77 +255,101 @@ def build_chart(total_pct_df,filter_option, label_dict=None):
         xaxis_title="Date",
         yaxis_title="Cumulative % Return",
         template="plotly_white",
-        height=650
+        height=650,
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+        margin=dict(l=20, r=20, t=80, b=40),
     )
     return fig
 
 
-def calculate_pct_rank_delta(df,n_days):
-    stock_cols = df.columns.drop(["mean_pct_chg", "median_pct_change", "std", "2std"], errors='ignore')
+def calculate_pct_rank_delta(df, n_days):
+    stock_cols = df.columns.drop(STATS_COLUMNS, errors="ignore")
 
-    
+    if df.empty or n_days <= 0 or n_days >= len(df):
+        return pd.DataFrame(columns=["current_day_rank", "n_days_ago_rank", "rank_delta"])
+
     pct_rank = df[stock_cols].rank(axis=1, pct=True) * 100
-    n_days_ago = pct_rank.shift(n_days).iloc[-1].astype(int)
-    current_day = pct_rank.iloc[-1].astype(int)
-    current_day.rename("current_day_rank",inplace=True)
-    n_days_ago.rename("n_days_ago_rank",inplace=True)
-    delta_df = pd.merge(current_day,n_days_ago,left_index=True,right_index=True,how='inner')
-    delta_df['rank_delta'] = delta_df['current_day_rank'] - delta_df['n_days_ago_rank']
-    delta_df.sort_values(by='rank_delta',ascending=False,inplace = True)
+    n_days_ago = pct_rank.iloc[-1 - n_days].round().astype(int)
+    current_day = pct_rank.iloc[-1].round().astype(int)
+    current_day.rename("current_day_rank", inplace=True)
+    n_days_ago.rename("n_days_ago_rank", inplace=True)
+    delta_df = pd.merge(current_day, n_days_ago, left_index=True, right_index=True, how="inner")
+    delta_df["rank_delta"] = delta_df["current_day_rank"] - delta_df["n_days_ago_rank"]
+    delta_df.sort_values(by="rank_delta", ascending=False, inplace=True)
     
     return delta_df
 
 
 
 
-def get_stocks_above_52w_high(market,df_group):
+@st.cache_data(show_spinner=False, ttl=60 * 60)
+def _get_stocks_above_52w_high(symbols):
+    downloaded = yf.download(
+        list(symbols),
+        period="1y",
+        auto_adjust=False,
+        progress=False,
+        group_by="column",
+    )
+
+    if downloaded.empty:
+        return pd.DataFrame(columns=["stock", "previous_52w_high", "current_close"])
+
+    if isinstance(downloaded.columns, pd.MultiIndex):
+        if "High" not in downloaded.columns.get_level_values(0) or "Close" not in downloaded.columns.get_level_values(0):
+            return pd.DataFrame(columns=["stock", "previous_52w_high", "current_close"])
+        highs = downloaded["High"]
+        closes = downloaded["Close"]
+    else:
+        if "High" not in downloaded.columns or "Close" not in downloaded.columns:
+            return pd.DataFrame(columns=["stock", "previous_52w_high", "current_close"])
+        highs = downloaded["High"].to_frame(name=symbols[0])
+        closes = downloaded["Close"].to_frame(name=symbols[0])
+
     data = []
+    for stock in symbols:
+        if stock not in highs.columns or stock not in closes.columns:
+            continue
 
-    for stock in market.get_symbols(df_group):
-        try:
-            df = yf.download(
-                stock,
-                period="1y",
-                auto_adjust=False,
-                progress=False,
-                multi_level_index=False
-            )
+        high = highs[stock].dropna()
+        close = closes[stock].dropna()
+        if len(high) < 2 or close.empty:
+            continue
 
-            if df.empty:
-                continue
+        previous_52w_high = high.iloc[:-1].max()
+        current_close = close.iloc[-1]
+        if pd.isna(previous_52w_high) or pd.isna(current_close):
+            continue
 
-            previous_52w_high = df["High"].iloc[:-1].max()
-            current_close = df["Close"].iloc[-1]
-
-            data.append({
-                "stock": stock,
-                "previous_52w_high": previous_52w_high,
-                "current_close": current_close
-            })
-
-        except Exception as e:
-            print(f"Error processing {stock}: {e}")
+        data.append({
+            "stock": stock,
+            "previous_52w_high": previous_52w_high,
+            "current_close": current_close
+        })
 
     df_result = pd.DataFrame(data)
+    if df_result.empty:
+        return df_result
 
-    
-    final_df = df_result[
-        df_result["current_close"] >= df_result['previous_52w_high']
-    ].reset_index(drop=True)
+    return df_result[df_result["current_close"] >= df_result["previous_52w_high"]].reset_index(drop=True)
 
-    return final_df
+
+def get_stocks_above_52w_high(market, df_group):
+    symbols = tuple(market.get_symbols(df_group))
+    return _get_stocks_above_52w_high(symbols)
 
 
 
 def get_sector_performance_timeseries(df_group,market, period="1y"):
 
     sector_perf = pd.DataFrame()
+    if "Sector" not in df_group.columns:
+        return sector_perf
 
     for sector, group in df_group.groupby("Sector"):
 
-        tickers = group["SYMBOL"].tolist()
-        if market.yf_ext is not None:
-            tickers = [s + market.yf_ext for s in tickers]
+        tickers = market.get_symbols(group)
         try:
             prices = yf.download(
                 tickers,
@@ -322,6 +363,8 @@ def get_sector_performance_timeseries(df_group,market, period="1y"):
                 prices = prices.to_frame()
 
             prices = prices.dropna(axis=1, how="all")
+            if prices.empty:
+                continue
 
             # Normalize to 100
             normalized = prices.div(prices.iloc[0]).mul(100)
