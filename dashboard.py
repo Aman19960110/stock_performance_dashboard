@@ -99,8 +99,8 @@ with st.spinner("Scanning stocks making new 52-week highs..."):
     stock_df_above_52w = hf.get_stocks_above_52w_high(market, df_group)
 st.dataframe(stock_df_above_52w)
 
-
-sector_perf = hf.get_sector_performance_timeseries(df_group,market=market)
+with st.spinner("Equal Weighted Sector Performance"):
+    sector_perf = hf.get_sector_performance_timeseries(df_group,market)
 
 plot_df = sector_perf.reset_index()
 
