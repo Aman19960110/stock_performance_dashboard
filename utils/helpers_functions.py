@@ -304,7 +304,7 @@ def get_sector_performance_timeseries(df_group, period="1y"):
 
     sector_perf = pd.DataFrame()
 
-    for sector, group in df_group.groupby("GICS Sector"):
+    for sector, group in df_group.groupby("Sector"):
 
         tickers = group["SYMBOL"].tolist()
 
