@@ -3,7 +3,7 @@ import pandas as pd
 class Dax():
 
     def __init__(self):
-        pass
+        self.yf_ext = None
     def load_csv(self):
         df = pd.read_csv(r"stock_list/DAX.csv")
         df.fillna(0, inplace=True)

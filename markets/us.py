@@ -3,7 +3,7 @@ import pandas as pd
 class Us_Market():
 
     def __init__(self):
-        pass
+        self.yf_ext = None
     def load_csv(self):
         df = pd.read_csv(r'stock_list/snp_list.csv',index_col = 0)
         df = df.rename(columns={

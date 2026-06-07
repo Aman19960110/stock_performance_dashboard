@@ -3,7 +3,7 @@ import pandas as pd
 class Tsx():
 
     def __init__(self):
-        pass
+        self.yf_ext = '.TO'
     def load_csv(self):
         df = pd.read_csv(r"stock_list/TSX.csv")
         df.fillna(0, inplace=True)

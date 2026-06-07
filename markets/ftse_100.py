@@ -3,7 +3,7 @@ import pandas as pd
 class Ftse():
 
     def __init__(self):
-        pass
+        self.yf_ext = '.L'
     def load_csv(self):
         df = pd.read_csv(r"stock_list/FTSE_100.csv")
         df.fillna(0, inplace=True)

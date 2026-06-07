@@ -300,14 +300,15 @@ def get_stocks_above_52w_high(market,df_group):
 
 
 
-def get_sector_performance_timeseries(df_group, period="1y"):
+def get_sector_performance_timeseries(df_group,market, period="1y"):
 
     sector_perf = pd.DataFrame()
 
     for sector, group in df_group.groupby("Sector"):
 
         tickers = group["SYMBOL"].tolist()
-
+        if market.yf_ext is not None:
+            tickers = [s + market.yf_ext for s in tickers]
         try:
             prices = yf.download(
                 tickers,
