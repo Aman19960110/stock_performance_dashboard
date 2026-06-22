@@ -3,6 +3,9 @@ import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
 import streamlit as st
+import os
+from pathlib import Path
+from screener_scrapper import ScreenerClient
 
 from markets.us import Us_Market
 from markets.india import India_Market
@@ -251,14 +254,28 @@ def build_chart(total_pct_df, filter_option, label_dict=None):
     # Layout
     # =========================
     fig.update_layout(
-        title=f"Stocks ({filter_option})",
-        xaxis_title="Date",
-        yaxis_title="Cumulative % Return",
-        template="plotly_white",
-        height=650,
-        hovermode="x unified",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
-        margin=dict(l=20, r=20, t=80, b=40),
+    title=f"Stocks ({filter_option})",
+    xaxis_title="Date",
+    yaxis_title="Cumulative % Return",
+    template="plotly_white",
+    height=650,
+
+    hovermode="closest",   # <-- see point 2
+
+    legend=dict(
+        orientation="v",   # vertical
+        yanchor="top",
+        y=1,
+        xanchor="left",
+        x=1.02,            # place outside plot area
+    ),
+
+    margin=dict(
+        l=20,
+        r=100,             # extra space for legend
+        t=80,
+        b=40
+    ),
     )
     return fig
 
@@ -378,3 +395,48 @@ def get_sector_performance_timeseries(df_group,market, period="1y"):
             print(f"{sector}: {e}")
 
     return sector_perf
+
+
+
+
+@st.cache_resource
+def get_screener_client():
+
+    # Load .env only once
+    for line in Path(".env").read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+
+        if (
+            line
+            and not line.startswith("#")
+            and "=" in line
+        ):
+            key, value = line.split("=", 1)
+            os.environ.setdefault(
+                key.strip(),
+                value.strip()
+            )
+
+    return ScreenerClient(
+        username=os.environ["SCREENER_USERNAME"],
+        password=os.environ["SCREENER_PASSWORD"],
+    )
+
+
+@st.cache_data(ttl=3600)
+def get_screener_ratios(symbol):
+
+    client = get_screener_client()
+
+    top_ratios = client.get_top_ratios(symbol)
+    quick_ratios = client.get_quick_ratios(symbol, "other")
+
+    return top_ratios, quick_ratios
+
+@st.cache_data(ttl=3600)
+def get_peers_comparision(symbol):
+
+    client = get_screener_client()
+    
+    peers_df = client.get_peer_comparison(symbol)
+    return peers_df

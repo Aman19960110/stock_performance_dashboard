@@ -3,7 +3,7 @@ name = "stock-performance-dashboard"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "pandas>=2.3.3",
     "plotly>=6.5.2",
@@ -12,4 +12,8 @@ dependencies = [
     "curl-cffi<0.8",
     "nselib>=2.5.1",
     "numpy>=2.4.1",
+    "screener-in",
 ]
+
+[tool.uv.sources]
+screener-in = { git = "https://github.com/Aman19960110/screener_in.git" }

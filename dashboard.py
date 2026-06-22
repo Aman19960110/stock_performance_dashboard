@@ -1,6 +1,9 @@
 import streamlit as st
 import plotly.express as px
 import utils.helpers_functions as hf
+from screener_scrapper import ScreenerClient
+import os
+from pathlib import Path
 
 from config import Settings
 
@@ -109,6 +112,110 @@ chart_tab, movers_tab, highs_tab, sectors_tab, stocks_tab = st.tabs(
 
 with chart_tab:
     st.plotly_chart(fig, use_container_width=True)
+    if choice == "India":
+
+        symbols_list = sorted(
+            df_group["SYMBOL"]
+            .dropna()
+            .unique()
+            .tolist()
+        )
+
+        selected_stock = st.selectbox(
+            "Select Stock",
+            options=symbols_list,
+            index=None,
+            placeholder="Choose a stock...",
+            
+        )
+
+        if selected_stock:
+
+            try:
+
+                top_ratios, quick_ratios = hf.get_screener_ratios(
+                    selected_stock
+                )
+
+                Mcap = top_ratios.get(
+                    "Market Cap",
+                    "N/A"
+                )
+
+                current_price = top_ratios.get(
+                    "Current Price",
+                    "N/A"
+                )
+
+                High_low = top_ratios.get(
+                    "High / Low",
+                    "N/A"
+                )
+
+                stock_pe = top_ratios.get(
+                    "Stock P/E",
+                    "N/A"
+                )
+
+                change_in_prom_hold = quick_ratios.get(
+                    "Change in Prom Hold",
+                    "N/A"
+                )
+
+                eps = quick_ratios.get(
+                    "EPS",
+                    "N/A"
+                )
+
+                                # First row
+                row1 = st.columns(3)
+
+                row1[0].metric(
+                    "Market Cap",
+                    Mcap
+                )
+
+                row1[1].metric(
+                    "Current Price",
+                    current_price
+                )
+
+                row1[2].metric(
+                    "High / Low",
+                    High_low
+                )
+
+                # Second row
+                row2 = st.columns(3)
+
+                row2[0].metric(
+                    "Stock P/E",
+                    stock_pe
+                )
+
+                row2[1].metric(
+                    "Change in Prom Hold",
+                    change_in_prom_hold
+                )
+
+                row2[2].metric(
+                    "EPS",
+                    eps
+                )
+
+            except Exception as e:
+
+                st.error(
+                    f"Failed to fetch Screener data for "
+                    f"{selected_stock}"
+                )
+
+                st.exception(e)
+
+        peer_df = hf.get_peers_comparision(selected_stock)
+        st.dataframe(peer_df)
+    
+        
 
 with movers_tab:
     st.sidebar.subheader("Rank Delta")
