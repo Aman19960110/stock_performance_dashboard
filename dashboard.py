@@ -99,10 +99,10 @@ worst_symbol = last_returns.index[-1]
 mean_return = total_pct_df["mean_pct_chg"].iloc[-1]
 
 metric_cols = st.columns(4)
-metric_cols[0].metric("Stocks Loaded", len(stock_cols))
-metric_cols[1].metric("Mean Return", f"{mean_return:.2f}%")
-metric_cols[2].metric("Best Performer", label_dict.get(best_symbol, best_symbol), f"{last_returns.iloc[0]:.2f}%")
-metric_cols[3].metric("Weakest Performer", label_dict.get(worst_symbol, worst_symbol), f"{last_returns.iloc[-1]:.2f}%")
+metric_cols[0].metric("Stocks Loaded", len(stock_cols),border= True)
+metric_cols[1].metric("Mean Return", f"{mean_return:.2f}%",border= True)
+metric_cols[2].metric("Best Performer", label_dict.get(best_symbol, best_symbol), f"{last_returns.iloc[0]:.2f}%",border= True)
+metric_cols[3].metric("Weakest Performer", label_dict.get(worst_symbol, worst_symbol), f"{last_returns.iloc[-1]:.2f}%",border= True)
 
 fig = hf.build_chart(total_pct_df, filter_option, label_dict)
 
@@ -128,6 +128,8 @@ with chart_tab:
             placeholder="Choose a stock...",
             
         )
+        if selected_stock == None:
+            st.stop()
 
         if selected_stock:
 
@@ -167,22 +169,43 @@ with chart_tab:
                     "N/A"
                 )
 
-                                # First row
+                change_in_fii_holding = quick_ratios.get(
+                    'Chg in FII Hold',
+                    'N/A'
+                )
+
+                change_in_dii_holding = quick_ratios.get(
+                    'Chg in DII Hold',
+                    'N/A'
+                )
+
+                public_holding = quick_ratios.get(
+                    'Public holding',
+                    'N/A'
+                )
+
+
+                st.subheader('Stock Ratios')
+
+                    # First row
                 row1 = st.columns(3)
 
                 row1[0].metric(
                     "Market Cap",
-                    Mcap
+                    Mcap,
+                    border= True
                 )
 
                 row1[1].metric(
                     "Current Price",
-                    current_price
+                    current_price,
+                    border= True
                 )
 
                 row1[2].metric(
                     "High / Low",
-                    High_low
+                    High_low,
+                    border= True
                 )
 
                 # Second row
@@ -190,18 +213,26 @@ with chart_tab:
 
                 row2[0].metric(
                     "Stock P/E",
-                    stock_pe
+                    stock_pe,
+                    border= True
                 )
 
                 row2[1].metric(
                     "Change in Prom Hold",
-                    change_in_prom_hold
+                    change_in_prom_hold,
+                    border= True
                 )
 
                 row2[2].metric(
                     "EPS",
-                    eps
+                    eps,
+                    border= True
                 )
+                row3 = st.columns(3)
+                row3[0].metric('Chg in FII hold',change_in_fii_holding,border=True )
+                row3[1].metric('Chg in DII hold',change_in_dii_holding,border=True)
+                row3[2].metric('Public Holding',public_holding,border=True)
+
 
             except Exception as e:
 
@@ -211,7 +242,7 @@ with chart_tab:
                 )
 
                 st.exception(e)
-
+        st.subheader('Peer comparison')
         peer_df = hf.get_peers_comparision(selected_stock)
         st.dataframe(peer_df)
     
