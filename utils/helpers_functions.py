@@ -2,6 +2,7 @@ import math
 import pandas as pd
 import yfinance as yf
 import plotly.graph_objects as go
+import plotly.express as px
 import streamlit as st
 import os
 from pathlib import Path
@@ -75,8 +76,43 @@ def _close_frame(downloaded):
     return close.dropna(axis=1, how="all")
 
 
+def _vwap_frame(downloaded):
+    if downloaded.empty:
+        return pd.DataFrame()
+
+    if isinstance(downloaded.columns, pd.MultiIndex):
+        if "Close" not in downloaded.columns.get_level_values(0):
+            return pd.DataFrame()
+        close = downloaded["Close"]
+        high = downloaded["High"]
+        low = downloaded["Low"]
+        volume = downloaded["Volume"]
+    else:
+        if "Close" not in downloaded.columns:
+            return pd.DataFrame()
+        close = downloaded["Close"]
+        high = downloaded["High"]
+        low = downloaded["Low"]
+        volume = downloaded["Volume"]
+
+    # Calculate VWAP for each symbol
+    vwap_dict = {}
+    if isinstance(close, pd.DataFrame):
+        for col in close.columns:
+            typical_price = (close[col] + high[col] + low[col]) / 3
+            vwap = (typical_price * volume[col]).cumsum() / volume[col].cumsum()
+            vwap_dict[col] = vwap
+    else:
+        typical_price = (close + high + low) / 3
+        vwap = (typical_price * volume).cumsum() / volume.cumsum()
+        vwap_dict[close.name] = vwap
+
+    vwap_df = pd.DataFrame(vwap_dict)
+    return vwap_df.dropna(axis=1, how="all")
+
+
 @st.cache_data(show_spinner=False, ttl=60 * 60)
-def get_data(symbols, start, end):
+def get_data(symbols, start, end, price_type="Close"):
     downloaded = yf.download(
         list(symbols),
         start=start,
@@ -85,7 +121,11 @@ def get_data(symbols, start, end):
         auto_adjust=True,
         group_by="column",
     )
-    return _close_frame(downloaded)
+    
+    if price_type == "VWAP":
+        return _vwap_frame(downloaded)
+    else:
+        return _close_frame(downloaded)
 
 def calculate_returns(price_df):
     pct_df = price_df.pct_change().fillna(0)
@@ -397,6 +437,32 @@ def get_sector_performance_timeseries(df_group,market, period="1y"):
     return sector_perf
 
 
+@st.cache_data(show_spinner=False, ttl=60 * 60)
+def build_sector_performance_chart(df_group, _market):
+    """Build a cached sector performance chart with equal weighted indices."""
+    sector_perf = get_sector_performance_timeseries(df_group, _market)
+    
+    if sector_perf.empty:
+        return None
+    
+    plot_df = sector_perf.reset_index()
+    sector_fig = px.line(
+        plot_df,
+        x="Date",
+        y=sector_perf.columns,
+        title="Equal Weighted Sector Performance",
+    )
+
+    sector_fig.update_layout(
+        xaxis_title="Date",
+        yaxis_title="Normalized Index (Base = 100)",
+        template="plotly_white",
+        hovermode="closest",
+        legend=dict(orientation="v", yanchor="top", y=1, xanchor="left", x=1.02),
+        margin=dict(l=20, r=20, t=80, b=40),
+    )
+
+    return sector_fig
 
 
 @st.cache_resource

@@ -13,6 +13,7 @@ dependencies = [
     "nselib>=2.5.1",
     "numpy>=2.4.1",
     "screener-in",
+    "plotly-express>=0.4.1",
 ]
 
 [tool.uv.sources]
