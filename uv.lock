@@ -1002,7 +1002,7 @@ wheels = [
 [[package]]
 name = "screener-in"
 version = "0.1.0"
-source = { git = "https://github.com/Aman19960110/screener_in.git#a5431589d18481abd00eb795d253cc8b450bb4ad" }
+source = { git = "https://github.com/Aman19960110/screener_in.git#21cf48c9820bdb0a66d99396bac712e93c6f2bcb" }
 dependencies = [
     { name = "bs4" },
     { name = "lxml" },

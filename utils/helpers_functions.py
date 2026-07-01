@@ -440,3 +440,11 @@ def get_peers_comparision(symbol):
     
     peers_df = client.get_peer_comparison(symbol)
     return peers_df
+
+@st.cache_data(ttl=3600)
+def get_fund_manger_stock(fund_manger):
+
+    client = get_screener_client()
+    
+    mask = client.full_text_search(fund_manger)
+    return mask

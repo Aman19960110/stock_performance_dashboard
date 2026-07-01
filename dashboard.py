@@ -123,7 +123,7 @@ with chart_tab:
 
         selected_stock = st.selectbox(
             "Select Stock",
-            options=symbols_list,
+            options = symbols_list,
             index=None,
             placeholder="Choose a stock...",
             
@@ -245,8 +245,19 @@ with chart_tab:
         st.subheader('Peer comparison')
         peer_df = hf.get_peers_comparision(selected_stock)
         st.dataframe(peer_df)
-    
+
+        st.subheader('Stock of Fund Manger')
+        selected_fund_manger = st.text_input(
+            "Fund Manger",
+            placeholder="Enter the Name...",
+            
+        )
+        if selected_fund_manger == None:
+            st.stop()
+
         
+        fund_m_stock = hf.get_fund_manger_stock(selected_fund_manger)
+        st.dataframe(fund_m_stock)
 
 with movers_tab:
     st.sidebar.subheader("Rank Delta")
@@ -288,8 +299,8 @@ with sectors_tab:
             xaxis_title="Date",
             yaxis_title="Normalized Index (Base = 100)",
             template="plotly_white",
-            hovermode="x unified",
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+            hovermode="closest",
+            legend=dict(orientation="v",yanchor="top",y=1,xanchor="left",x=1.02),
             margin=dict(l=20, r=20, t=80, b=40),
         )
 
