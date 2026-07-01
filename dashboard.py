@@ -112,6 +112,31 @@ chart_tab, movers_tab, highs_tab, sectors_tab, stocks_tab = st.tabs(
 
 with chart_tab:
     st.plotly_chart(fig, use_container_width=True)
+    with st.spinner("Calculating equal weighted sector performance..."):
+        sector_perf = hf.get_sector_performance_timeseries(df_group, market)
+
+    if sector_perf.empty:
+        st.info("No sector performance data available for this group.")
+    else:
+        plot_df = sector_perf.reset_index()
+        sector_fig = px.line(
+            plot_df,
+            x="Date",
+            y=sector_perf.columns,
+            title="Equal Weighted Sector Performance",
+        )
+
+        sector_fig.update_layout(
+            xaxis_title="Date",
+            yaxis_title="Normalized Index (Base = 100)",
+            template="plotly_white",
+            hovermode="closest",
+            legend=dict(orientation="v",yanchor="top",y=1,xanchor="left",x=1.02),
+            margin=dict(l=20, r=20, t=80, b=40),
+        )
+
+        st.plotly_chart(sector_fig, use_container_width=True)
+
     if choice == "India":
 
         symbols_list = sorted(
@@ -279,32 +304,7 @@ with highs_tab:
     with st.spinner("Scanning stocks making new 52-week highs..."):
         stock_df_above_52w = hf.get_stocks_above_52w_high(market, df_group)
     st.dataframe(stock_df_above_52w, use_container_width=True)
-
-with sectors_tab:
-    with st.spinner("Calculating equal weighted sector performance..."):
-        sector_perf = hf.get_sector_performance_timeseries(df_group, market)
-
-    if sector_perf.empty:
-        st.info("No sector performance data available for this group.")
-    else:
-        plot_df = sector_perf.reset_index()
-        sector_fig = px.line(
-            plot_df,
-            x="Date",
-            y=sector_perf.columns,
-            title="Equal Weighted Sector Performance",
-        )
-
-        sector_fig.update_layout(
-            xaxis_title="Date",
-            yaxis_title="Normalized Index (Base = 100)",
-            template="plotly_white",
-            hovermode="closest",
-            legend=dict(orientation="v",yanchor="top",y=1,xanchor="left",x=1.02),
-            margin=dict(l=20, r=20, t=80, b=40),
-        )
-
-        st.plotly_chart(sector_fig, use_container_width=True)
+    
 
 with stocks_tab:
     st.subheader(f"Selected Stock Group (Group {group_no})")
