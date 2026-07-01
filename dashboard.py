@@ -12,6 +12,12 @@ st.title("Stock Performance Dashboard")
 
 st.sidebar.header("Parameters")
 
+if st.sidebar.button("Refresh Dashboard", use_container_width=True):
+    st.cache_data.clear()
+    st.cache_resource.clear()
+    st.session_state.clear()
+    st.rerun()
+
 settings = Settings()
 
 date_range = st.sidebar.date_input(
@@ -263,6 +269,13 @@ with chart_tab:
         st.subheader('Peer comparison')
         peer_df = hf.get_peers_comparision(selected_stock)
         st.dataframe(peer_df)
+        
+        # Build and display peer comparison chart
+        peer_chart = hf.build_peer_comparison_chart(peer_df, df_group, total_pct_df, label_dict)
+        if peer_chart is not None:
+            st.plotly_chart(peer_chart, use_container_width=True)
+        else:
+            st.info("Could not generate peer comparison chart.")
 
         st.subheader('Stock of Fund Manger')
         selected_fund_manger = st.text_input(

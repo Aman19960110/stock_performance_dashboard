@@ -7,6 +7,7 @@ import streamlit as st
 import os
 from pathlib import Path
 from screener_scrapper import ScreenerClient
+from difflib import get_close_matches
 
 from markets.us import Us_Market
 from markets.india import India_Market
@@ -44,6 +45,21 @@ MARKET_CONFIG = {
     "Canada": (Tsx, 25),
     "Australia": (Asx200, 25),
 }
+
+
+def normalize_symbol(symbol):
+    if symbol is None or (isinstance(symbol, float) and pd.isna(symbol)):
+        return None
+
+    text = str(symbol).strip().upper()
+    if not text:
+        return None
+
+    text = text.replace(" ", "")
+    if "." in text:
+        text = text.split(".", 1)[0]
+
+    return text
 
 
 def get_group(group_no, group_size, df):
@@ -463,6 +479,84 @@ def build_sector_performance_chart(df_group, _market):
     )
 
     return sector_fig
+
+
+def build_peer_comparison_chart(peer_df, stock_df, total_pct_df, label_dict=None):
+    """Build a chart for peer comparison based on peer_df company names using fuzzy matching."""
+    if peer_df.empty:
+        st.error("Peer comparison dataframe is empty")
+        return None
+    
+    peer_symbols = []
+    
+    # Try to get symbols from peer_df directly
+    if 'SYMBOL' in peer_df.columns:
+        peer_symbols = peer_df['SYMBOL'].dropna().tolist()
+    elif 'Symbol' in peer_df.columns:
+        peer_symbols = peer_df['Symbol'].dropna().tolist()
+    elif 'Name' in peer_df.columns:
+        # Create a mapping from company names to symbols using fuzzy matching
+        label_col = "NAME OF COMPANY"
+        
+        if label_col in stock_df.columns:
+            # Get list of company names from stock_df
+            company_names = stock_df[label_col].dropna().tolist()
+            name_to_symbol = dict(zip(company_names, stock_df[stock_df[label_col].notna()]['SYMBOL'].tolist()))
+            
+            # For each peer name, find the most similar company name
+            peer_names = peer_df['Name'].dropna().tolist()
+            for peer_name in peer_names:
+                peer_name_clean = str(peer_name).strip()
+                
+                # Find close matches (cutoff=0.6 means 60% similarity)
+                matches = get_close_matches(peer_name_clean, company_names, n=1, cutoff=0.6)
+                
+                if matches:
+                    matched_name = matches[0]
+                    symbol = name_to_symbol.get(matched_name)
+                    if symbol:
+                        peer_symbols.append(symbol)
+    
+    if not peer_symbols:
+        st.error(f"Could not match peer names to symbols. Peer columns: {peer_df.columns.tolist()}")
+        return None
+
+    normalized_peer_symbols = [normalize_symbol(symbol) for symbol in peer_symbols if normalize_symbol(symbol)]
+    if not normalized_peer_symbols:
+        st.error(f"Could not normalize peer symbols. Peers: {peer_symbols}")
+        return None
+    
+    # Filter returns data for peers only
+    stock_cols = [c for c in total_pct_df.columns if c not in STATS_COLUMNS]
+    normalized_stock_cols = {normalize_symbol(col): col for col in stock_cols if normalize_symbol(col)}
+    peer_cols = []
+    for peer_symbol in normalized_peer_symbols:
+        matched_col = normalized_stock_cols.get(peer_symbol)
+        if matched_col:
+            peer_cols.append(matched_col)
+    
+    if not peer_cols:
+        st.error(f"No peer symbols found in returns data. Peers: {normalized_peer_symbols}, Available: {stock_cols}")
+        return None
+    
+    # Create filtered dataframe
+    peer_pct_df = total_pct_df[peer_cols].copy()
+    
+    # Calculate stats for peer group
+    peer_pct_df["mean_pct_chg"] = peer_pct_df.mean(axis=1)
+    peer_pct_df["median_pct_change"] = peer_pct_df.median(axis=1)
+    peer_pct_df["std"] = peer_pct_df.drop(columns=["mean_pct_chg", "median_pct_change"]).std(axis=1)
+    peer_pct_df["2std"] = 2 * peer_pct_df["std"]
+    
+    # Build chart using existing build_chart function
+    fig = build_chart(peer_pct_df, "All stocks", label_dict)
+    
+    if fig:
+        fig.update_layout(title="Peer Comparison - Returns Performance")
+    
+    return fig
+
+
 
 
 @st.cache_resource
